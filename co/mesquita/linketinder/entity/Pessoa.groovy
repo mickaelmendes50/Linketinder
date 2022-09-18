@@ -1,12 +1,12 @@
 package co.mesquita.linketinder.entity
 
 abstract class Pessoa {
-    private String name
-    private String email
+    private name
+    private email
     // CPF - CNPJ
-    private String id
+    private id
 
-    Pessoa(String name, String email, String id) {
+    Pessoa(name, email, id) {
         this.name = name
         this.email = email
         this.id = id
@@ -16,7 +16,7 @@ abstract class Pessoa {
         return name
     }
 
-    void setName(String name) {
+    void setName(name) {
         this.name = name
     }
 
@@ -24,7 +24,7 @@ abstract class Pessoa {
         return email
     }
 
-    void setEmail(String email) {
+    void setEmail(email) {
         this.email = email
     }
 
@@ -32,13 +32,13 @@ abstract class Pessoa {
         return id
     }
 
-    void setId(String id) {
+    void setId(id) {
         this.id = id
     }
 
     // Tipo 1 = CPF
     // Tipo 0 = CNPJ
-    String toString(def type) {
+    String toString(type) {
         if (type)
             type = "CPF: "
         else
