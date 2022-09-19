@@ -12,6 +12,15 @@ static void main(args) {
         }
     }
 
+    def printMenu = {
+        println "------------------------------"
+        println "-- Bem vindo ao Linketinder --"
+        println "------------------------------"
+        println "1. Listar empresas"
+        println "2. Listar candidatos"
+        println "0. Sair"
+    }
+
     Pessoa p = new PessoaFisica("João", "joao@worker.com", "123.456.789-01", 23, "Goiás", "74659-156", "Legal e extrovertido")
     p.addSkill("Java")
     p.addSkill("Groovy")
@@ -33,9 +42,6 @@ static void main(args) {
     p.addSkill(".NET")
     workers.add(p);    
 
-    println "Candidatos"
-    printInfo(workers)
-
     p = new PessoaJuridica("Hiper Festa", "hiperfesta@employer.com", "12.345.678/0001-10", "Brasil", "São Paulo", "96325-452", "Rede de festa")
     p.addSkill("Liderança")
     p.addSkill("Experiencia")
@@ -56,7 +62,22 @@ static void main(args) {
     p.addSkill("Experiencia")
     p.addSkill("Vendas")
     employers.add(p)
-
-    println "Empresas"
-    printInfo(employers)
+    
+    def option = -1
+    do {
+        printMenu()
+        option = System.in.newReader().readLine() as Integer
+        switch(option) {
+            case 1:
+                printInfo(employers)
+                break
+            case 2:
+                printInfo(workers)
+                break
+            case 0:
+                break
+            default:
+                println "Opção inválida!"
+        }
+    } while (option != 0)
 }
