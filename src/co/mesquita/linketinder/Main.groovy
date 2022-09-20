@@ -13,6 +13,36 @@ static void main(args) {
         }
     }
 
+    def colectData = { type ->
+        if (type)
+            println "Adicionar novo Candidato"
+        else
+            println "Adicionar nova Empresa"
+
+        print "Nome: "
+        def name = System.in.newReader().readLine()
+        print "Email: "
+        def email = System.in.newReader().readLine()
+        if (type)
+            print "CPF: "
+        else
+            print "CNPJ: "
+        def id = System.in.newReader().readLine()
+        if (type)
+            print "Idade: "
+        else
+            print "Pa�s: "
+        def var = System.in.newReader().readLine()
+        print "Estado: "
+        def estate = System.in.newReader().readLine()
+        print "CEP: "
+        def cep = System.in.newReader().readLine()
+        print "Descriç�o: "
+        def description = System.in.newReader().readLine()
+
+        return createPessoa(type, name, email, id, var, estate, cep, description)
+    }
+
     def printMenu = {
         println "------------------------------"
         println "-- Bem vindo ao Linketinder --"
@@ -78,10 +108,10 @@ static void main(args) {
                 printInfo(workers)
                 break
             case 3:
-                employers.add(createPessoa(0))
+                employers.add(colectData(0))
                 break
             case 4:
-                workers.add(createPessoa(1))
+                workers.add(colectData(1))
                 break
             case 0:
                 break
