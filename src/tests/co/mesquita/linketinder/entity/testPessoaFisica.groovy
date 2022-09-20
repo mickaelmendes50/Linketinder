@@ -2,12 +2,37 @@ package tests.co.mesquita.linketinder.entity
 
 import co.mesquita.linketinder.entity.Pessoa
 import co.mesquita.linketinder.entity.PessoaFisica
-import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
 
 import static org.junit.jupiter.api.Assertions.*
 
 class testPessoaFisica {
+    @Test
+    void testGetName() {
+        Pessoa pf = new PessoaFisica("João", "joao@worker.com", "123.456.789-01", 23, "Goiás", "74659-156", "Legal e extrovertido")
+        if (pf.getName().equals("João"))
+            assertTrue(true)
+        else
+            assertTrue(false)
+    }
+
+    @Test
+    void testGetEmail() {
+        Pessoa pf = new PessoaFisica("João", "joao@worker.com", "123.456.789-01", 23, "Goiás", "74659-156", "Legal e extrovertido")
+        if (pf.getEmail().equals("joao@worker.com"))
+            assertTrue(true)
+        else
+            assertTrue(false)
+    }
+
+    @Test
+    void testGetId() {
+        Pessoa pf = new PessoaFisica("João", "joao@worker.com", "123.456.789-01", 23, "Goiás", "74659-156", "Legal e extrovertido")
+        if (pf.getId().equals("123.456.789-01"))
+            assertTrue(true)
+        else
+            assertTrue(false)
+    }
 
     @Test
     void testGetAge() {
@@ -46,7 +71,7 @@ class testPessoaFisica {
     }
 
     @Test
-    void testGetSkills () {
+    void testAddSkills () {
         Pessoa pf = new PessoaFisica("João", "joao@worker.com", "123.456.789-01", 23, "Goiás", "74659-156", "Legal e extrovertido")
         pf.addSkill("Java")
         pf.addSkill("JUnit")
