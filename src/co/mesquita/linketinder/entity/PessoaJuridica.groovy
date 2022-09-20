@@ -16,6 +16,18 @@ class PessoaJuridica extends Pessoa {
         this.description = description
     }
 
+    String getName() {
+        return super.getName()
+    }
+
+    String getEmail() {
+        return super.getEmail()
+    }
+
+    String getId() {
+        return super.getId()
+    }
+
     String getCountry() {
         return this.country
     }
