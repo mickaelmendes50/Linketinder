@@ -1,5 +1,6 @@
 package co.mesquita.linketinder
 
+import static co.mesquita.linketinder.crud.CreatePessoa.createPessoa
 import co.mesquita.linketinder.entity.*
 
 static void main(args) {
@@ -18,6 +19,8 @@ static void main(args) {
         println "------------------------------"
         println "1. Listar empresas"
         println "2. Listar candidatos"
+        println "3. Adicionar empresa"
+        println "4. Adicionar candidado"
         println "0. Sair"
     }
 
@@ -73,6 +76,12 @@ static void main(args) {
                 break
             case 2:
                 printInfo(workers)
+                break
+            case 3:
+                employers.add(createPessoa(0))
+                break
+            case 4:
+                workers.add(createPessoa(1))
                 break
             case 0:
                 break
