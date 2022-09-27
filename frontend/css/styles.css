@@ -1,0 +1,27 @@
+body {
+    background-color: #f3f3f3;
+}
+
+#header {
+    margin: 7% 40% 3% 40%;
+    text-align: center;
+    color: purple;
+    border: 2pt solid purple;
+    border-radius: 20px;
+}
+
+#title {
+    margin: 0%;
+    margin-top: 2%;
+}
+
+#subtitle {
+    margin: 0%;
+    margin-bottom: 2%;
+}
+
+hr.rounded {
+    border-top: 3px solid purple;
+    border-radius: 5px;
+    width: 30%;
+}
