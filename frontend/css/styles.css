@@ -3,7 +3,9 @@ body {
 }
 
 #header {
-    margin: 7% 40% 3% 40%;
+    margin:  40%;
+    margin-top: 5%;
+    margin-bottom: 2%;
     text-align: center;
     color: purple;
     border: 2pt solid purple;
@@ -24,4 +26,44 @@ hr.rounded {
     border-top: 3px solid purple;
     border-radius: 5px;
     width: 30%;
+}
+
+input[type=text],input[type=date], select {
+    margin: 7px;
+    border: 2px solid purple;
+    border-radius: 4px;
+    padding: 7px;
+    width: 250px;
+}
+
+input[type=radio] {
+    margin: 10px;
+}
+
+#forms, #forms-business, #forms-candidate {
+    margin: 40%;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    border: 2pt solid purple;
+    border-radius: 15px;
+    text-align: center;
+}
+
+#forms-business, #forms-candidate {
+    padding-top: 1%;
+    padding-bottom: 1%;
+    display: none;
+}
+
+button {
+    background-color: purple;
+    border: none;
+    color: white;
+    padding: 10px 27px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 20px;
+    margin-top: 3%;
 }
