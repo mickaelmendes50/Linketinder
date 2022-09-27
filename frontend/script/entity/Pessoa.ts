@@ -1,36 +1,36 @@
 abstract class Pessoa {
-    private _name: String
-    private _email: String
+    private _name: string
+    private _email: string
     // CPF - CNPJ
-    private _id: String
+    private _id: string
 
-    constructor(name: String, email: String, id: String) {
+    constructor(name: string, email: string, id: string) {
         this._name = name
         this._email = email
         this._id = id        
     }
 
-    get name(): String {
+    get name(): string {
         return this._name
     }
 
-    set name(name: String) {
+    set name(name: string) {
         this._name = name
     }
 
-    get email(): String {
+    get email(): string {
         return this._email
     }
 
-    set email(email: String) {
+    set email(email: string) {
         this._email = email
     }
 
-    get id(): String {
+    get id(): string {
         return this._id
     }
 
-    set id(id: String) {
+    set id(id: string) {
         this._id = id
     }
 }

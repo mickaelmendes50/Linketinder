@@ -1,10 +1,10 @@
 class PessoaJuridica extends Pessoa {
-    private _country: String
-    private _estate: String
-    private _cep: String
-    private _description: String
+    private _country: string
+    private _estate: string
+    private _cep: string
+    private _description: string
 
-    constructor(name: String, email: String, id: String, country: String, estate: String, cep: String, description: String) {
+    constructor(name: string, email: string, id: string, country: string, estate: string, cep: string, description: string) {
         super(name, email, id)
         this._country = country
         this._estate = estate
@@ -12,35 +12,35 @@ class PessoaJuridica extends Pessoa {
         this._description = description  
     }
 
-    get country(): String {
+    get country(): string {
         return this._country
     }
 
-    set country(country: String) {
+    set country(country: string) {
         this._country = country
     }
 
-    get estate(): String {
+    get estate(): string {
         return this._estate
     }
 
-    set estate(estate: String) {
+    set estate(estate: string) {
         this._estate = estate
     }
 
-    get cep(): String {
+    get cep(): string {
         return this._cep
     }
 
-    set cep(cep: String) {
+    set cep(cep: string) {
         this._cep = cep
     }
 
-    get description(): String {
+    get description(): string {
         return this._description
     }
 
-    set description(description: String) {
+    set description(description: string) {
         this._description = description
     }
 }

@@ -67,3 +67,7 @@ button {
     border-radius: 20px;
     margin-top: 3%;
 }
+
+button:hover {
+    background-color: rgb(170, 57, 170);
+}
