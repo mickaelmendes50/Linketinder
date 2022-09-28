@@ -1,8 +1,10 @@
 class PessoaJuridica extends Pessoa {
-    private _country: string
-    private _estate: string
-    private _cep: string
-    private _description: string
+    _country: string
+    _estate: string
+    _cep: string
+    _description: string
+
+    _skills: string[] = []
 
     constructor(name: string, email: string, id: string, country: string, estate: string, cep: string, description: string) {
         super(name, email, id)
@@ -16,31 +18,29 @@ class PessoaJuridica extends Pessoa {
         return this._country
     }
 
-    set country(country: string) {
-        this._country = country
-    }
-
     get estate(): string {
         return this._estate
-    }
-
-    set estate(estate: string) {
-        this._estate = estate
     }
 
     get cep(): string {
         return this._cep
     }
 
-    set cep(cep: string) {
-        this._cep = cep
-    }
-
     get description(): string {
         return this._description
     }
 
-    set description(description: string) {
-        this._description = description
+    get skills(): string {
+        let tmp = ""
+        for (let i = 0; i < this._skills.length; i++) {
+            tmp += this._skills[i] + ", "
+        }
+        return tmp
+    }
+
+    addSkill(skill: string): string {
+        this._skills.push(skill)
+        return skill + " sucess"
     }
 }
+

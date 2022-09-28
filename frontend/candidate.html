@@ -4,10 +4,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+
     <title>Candidato</title>
 </head>
-<body>
-    
+<body onload="restoreContent(1), showInfo(1), showList(0)">
+    <div id="business-header">
+        <span id="business-title">LinkeTinder</span>
+        <div id="business-info">
+            <span id="acc-name" >Nome</span>
+        </div>
+    </div>
+
+    <div id="show-info">
+        <table id="info-table">
+            <tr>
+              <th>Nome</th>
+              <th>Email</th>
+              <th>CNPJ</th>
+              <th>Idade</th>
+              <th>Estado</th>
+              <th>CEP</th>
+              <th>Descrição</th>
+            </tr>
+            <tr>
+              <td id="show-name"></td>
+              <td id="show-email"></td>
+              <td id="show-id"></td>
+              <td id="show-age"></td>
+              <td id="show-estate"></td>
+              <td id="show-cep"></td>
+              <td id="show-description"></td>
+            </tr>
+          </table>
+    </div>
+
+    <div id="list">
+      <h3 id="list-title">Empresas</h3>
+      <div id="list-values"></div>
+    </div>
 
     <script src="script/scripts.js"></script>
     <script src="script/entity/Pessoa.js"></script>

@@ -1,8 +1,8 @@
 abstract class Pessoa {
-    private _name: string
-    private _email: string
+    _name: string
+    _email: string
     // CPF - CNPJ
-    private _id: string
+    _id: string
 
     constructor(name: string, email: string, id: string) {
         this._name = name
