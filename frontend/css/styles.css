@@ -136,3 +136,14 @@ tr {
 p, #list-title {
     text-align: center;
 }
+
+#chart_div {
+    display: block; 
+    padding: 1%;
+    background-color: white;
+    margin-right: 35%; 
+    margin-left: 35%; 
+    margin-top: 2%;
+    border: 2pt solid purple;
+    border-radius: 15px;
+}
