@@ -1,14 +1,14 @@
 package co.mesquita.linketinder.crud
 
 import co.mesquita.linketinder.entity.Pessoa
-import co.mesquita.linketinder.entity.PessoaFisica
-import co.mesquita.linketinder.entity.PessoaJuridica
+import co.mesquita.linketinder.entity.Candidato
+import co.mesquita.linketinder.entity.Empresa
 
 class CreatePessoa {
     static Pessoa createPessoa(type, name, email, id, var, estate, cep, description) {
         if (type)
-            return new PessoaFisica(name, email, id, var, estate, cep, description)
+            return new Candidato(name, email, id, var, estate, cep, description)
         else
-            return new PessoaJuridica(name, email, id, var, estate, cep, description)
+            return new Empresa(name, email, id, var, estate, cep, description)
     }
 }

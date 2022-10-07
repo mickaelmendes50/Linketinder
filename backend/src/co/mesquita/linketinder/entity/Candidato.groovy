@@ -1,6 +1,6 @@
 package co.mesquita.linketinder.entity
 
-class PessoaFisica extends Pessoa {
+class Candidato extends Pessoa {
     private age
     private estate
     private cep
@@ -8,7 +8,7 @@ class PessoaFisica extends Pessoa {
 
     private def skills = []
 
-    PessoaFisica(name, email, id, age, estate, cep, description) {
+    Candidato(name, email, id, age, estate, cep, description) {
         super(name, email, id)
         this.age = age
         this.estate = estate
