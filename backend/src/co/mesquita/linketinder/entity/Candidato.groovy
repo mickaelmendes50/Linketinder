@@ -1,6 +1,7 @@
 package co.mesquita.linketinder.entity
 
 class Candidato extends Pessoa {
+    private sobrenome
     private nascimento
     private estate
     private cep
@@ -9,7 +10,8 @@ class Candidato extends Pessoa {
     private def skills = []
 
     Candidato(id, name, sobrenome, email, senha, documento, nascimento, estate, cep, description) {
-        super(id, name, sobrenome, email, senha, documento)
+        super(id, name, email, senha, documento)
+        this.sobrenome = sobrenome
         this.nascimento = nascimento
         this.estate = estate
         this.cep = cep
@@ -17,7 +19,8 @@ class Candidato extends Pessoa {
     }
 
     Candidato(name, sobrenome, email, senha, documento, nascimento, estate, cep, description) {
-        super(name, sobrenome, email, senha, documento)
+        super(name, email, senha, documento)
+        this.sobrenome = sobrenome
         this.nascimento = nascimento
         this.estate = estate
         this.cep = cep
@@ -30,6 +33,14 @@ class Candidato extends Pessoa {
 
     String getEmail() {
         return super.getEmail()
+    }
+
+    String getSobrenome() {
+        return sobrenome
+    }
+
+    String getNascimento() {
+        return nascimento
     }
 
     String getId() {

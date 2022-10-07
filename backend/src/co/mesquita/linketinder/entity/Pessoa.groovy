@@ -3,46 +3,36 @@ package co.mesquita.linketinder.entity
 abstract class Pessoa {
     private id
     private name
-    private sobrenome
     private email
     private senha
     // CPF - CNPJ
     private documento
 
-    Pessoa(id, name, sobrenome, email, senha, documento) {
+    Pessoa(id, name, email, senha, documento) {
         this.id = id
         this.name = name
-        this.sobrenome = sobrenome
         this.email = email
         this.senha = senha
         this.documento = documento
     }
 
-    Pessoa(name, sobrenome, email, senha, documento) {
+    Pessoa(name, email, senha, documento) {
         this.name = name
-        this.sobrenome = sobrenome
         this.email = email
         this.senha = senha
         this.documento = documento
     }
 
-    def getDocumento() {
+
+    String getDocumento() {
         return documento
-    }
-
-    def getSobrenome() {
-        return sobrenome
-    }
-
-    void setSobrenome(sobrenome) {
-        this.sobrenome = sobrenome
     }
 
     void setDocumento(documento) {
         this.documento = documento
     }
 
-    def getSenha() {
+    String getSenha() {
         return senha
     }
 
@@ -83,7 +73,7 @@ abstract class Pessoa {
             type = "CNPJ: "
 
         return  "ID: " + getId() +
-                "\nNome: " + getName() + " " + getSobrenome() +
+                "\nNome: " + getName() +
                 "\nEmail: " + getEmail() +
                 "\n" + type + getDocumento()
 

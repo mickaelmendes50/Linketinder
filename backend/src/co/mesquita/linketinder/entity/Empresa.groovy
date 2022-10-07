@@ -2,18 +2,28 @@ package co.mesquita.linketinder.entity
 
 class Empresa extends Pessoa {
     private country
-    private estate
+    private documento
     private cep
     private description
 
     private def skills = []
 
-    Empresa(name, email, id, country, estate, cep, description) {
-        super(name, email, id)
+    Empresa(id, name, email, senha, documento, country, cep, description) {
+        super(id, name, email, senha, documento)
         this.country = country
-        this.estate = estate
         this.cep = cep
         this.description = description
+    }
+
+    Empresa(name, email, senha, documento, country, cep, description) {
+        super(name, email, senha, documento)
+        this.country = country
+        this.cep = cep
+        this.description = description
+    }
+
+    String getDocumento() {
+        return documento
     }
 
     String getName() {
@@ -30,10 +40,6 @@ class Empresa extends Pessoa {
 
     String getCountry() {
         return this.country
-    }
-
-    String getEstate() {
-        return this.estate
     }
 
     String getCep() {
@@ -60,7 +66,6 @@ class Empresa extends Pessoa {
         return "-----------------------------------------------------\n" +
                super.toString(1) + 
                "\nPaís: " + getCountry() +
-               "\nEstado: " + getEstate() +
                "\nCEP: " + getCep() +
                "\nDescrição: " + getDescription() +
                "\nCompetencias: " + getSkills()

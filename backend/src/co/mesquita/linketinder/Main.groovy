@@ -1,6 +1,7 @@
 package co.mesquita.linketinder
 
 import co.mesquita.linketinder.dao.CandidatoDAO
+import co.mesquita.linketinder.dao.EmpresaDAO
 
 import static co.mesquita.linketinder.crud.CreatePessoa.createPessoa
 import co.mesquita.linketinder.entity.*
@@ -70,7 +71,10 @@ static void main(args) {
         option = System.in.newReader().readLine() as Integer
         switch(option) {
             case 1:
-                printInfo(employers)
+                EmpresaDAO empresaDAO = new EmpresaDAO();
+                List<Empresa> lista = empresaDAO.listar();
+                for (Empresa empresa : lista)
+                    System.out.println(empresa);
                 break
             case 2:
                 CandidatoDAO candidatoDAO = new CandidatoDAO();
@@ -79,7 +83,9 @@ static void main(args) {
                     System.out.println(candidato);
                 break
             case 3:
-                employers.add(colectData(0))
+                Empresa empresa = colectData(0)
+                EmpresaDAO empresaDAO = new EmpresaDAO();
+                empresaDAO.inserir(empresa);
                 break
             case 4:
                 Candidato candidato = colectData(1)
@@ -87,6 +93,12 @@ static void main(args) {
                 candidatoDAO.inserir(candidato);
                 break
             case 5:
+                print "Digite o ID da empresa: "
+                int id = Integer.parseInt(System.in.newReader().readLine())
+
+                Empresa empresa = colectData(0)
+                EmpresaDAO empresaDAO = new EmpresaDAO();
+                empresaDAO.alterar(empresa, id);
                 break
             case 6:
                 print "Digite o ID do candidato: "
@@ -97,6 +109,11 @@ static void main(args) {
                 candidatoDAO.alterar(candidato, id);
                 break
             case 7:
+                print "Digite o ID da empresa: "
+                int id = Integer.parseInt(System.in.newReader().readLine())
+
+                EmpresaDAO empresaDAO = new EmpresaDAO();
+                empresaDAO.remover(id);
                 break
             case 8:
                 print "Digite o ID do candidato: "
