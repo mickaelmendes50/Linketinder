@@ -18,6 +18,14 @@ abstract class Pessoa {
         this.documento = documento
     }
 
+    Pessoa(name, sobrenome, email, senha, documento) {
+        this.name = name
+        this.sobrenome = sobrenome
+        this.email = email
+        this.senha = senha
+        this.documento = documento
+    }
+
     def getDocumento() {
         return documento
     }

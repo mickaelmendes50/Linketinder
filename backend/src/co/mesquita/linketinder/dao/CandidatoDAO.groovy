@@ -49,4 +49,26 @@ class CandidatoDAO {
         }
         return candidatos;
     }
+
+    public boolean inserir(Candidato candidato) {
+        String sql = "INSERT INTO candidatos (nome, sobrenome, email, senha, cpf, nascimento, pais, cep, descricao) VALUES(?,?,?,?,?,?,?,?,?)";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, candidato.getName());
+            stmt.setString(2, candidato.getSobrenome());
+            stmt.setString(3, candidato.getEmail());
+            stmt.setString(4, candidato.getSenha());
+            stmt.setString(5, candidato.getDocumento());
+            stmt.setString(6, candidato.getAge());
+            stmt.setString(7, candidato.getEstate());
+            stmt.setString(8, candidato.getCep());
+            stmt.setString(9, candidato.getDescription());
+
+            stmt.execute();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
 }

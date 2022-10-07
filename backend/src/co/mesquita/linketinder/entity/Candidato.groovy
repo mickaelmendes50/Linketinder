@@ -16,6 +16,14 @@ class Candidato extends Pessoa {
         this.description = description
     }
 
+    Candidato(name, sobrenome, email, senha, documento, nascimento, estate, cep, description) {
+        super(name, sobrenome, email, senha, documento)
+        this.nascimento = nascimento
+        this.estate = estate
+        this.cep = cep
+        this.description = description
+    }
+
     String getName() {
         return super.getName()
     }
