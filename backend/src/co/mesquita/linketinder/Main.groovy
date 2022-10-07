@@ -1,5 +1,7 @@
 package co.mesquita.linketinder
 
+import co.mesquita.linketinder.dao.CandidatoDAO
+
 import static co.mesquita.linketinder.crud.CreatePessoa.createPessoa
 import co.mesquita.linketinder.entity.*
 
@@ -53,48 +55,6 @@ static void main(args) {
         println "4. Adicionar candidado"
         println "0. Sair"
     }
-
-    Pessoa p = new Candidato("João", "joao@worker.com", "123.456.789-01", 23, "Goiás", "74659-156", "Legal e extrovertido")
-    p.addSkill("Java")
-    p.addSkill("Groovy")
-    workers.add(p);
-    p = new Candidato("Maria", "maria@worker.com", "456.789.101-11", 32, "São Paulo", "86551-785", "Chata e introvertida")
-    p.addSkill("Kotlin")
-    p.addSkill("Apache")
-    workers.add(p);
-    p = new Candidato("Pedro", "pedro@worker.com", "789.101.112-13", 25, "Pernambuco", "95125-532", "Sábio e inteligente")
-    p.addSkill("Ruby")
-    p.addSkill("Node")
-    workers.add(p);
-    p = new Candidato("Marta", "marta@worker.com", "101.112.131-41", 20, "Ceará", "75369-159", "Educada e amorosa")
-    p.addSkill("Python")
-    p.addSkill("Spring")
-    workers.add(p);
-    p = new Candidato("José", "jose@worker.com", "112.131.415-01", 40, "Bahia", "96325-452", "Triste e dramático")
-    p.addSkill("C#")
-    p.addSkill(".NET")
-    workers.add(p);    
-
-    p = new Empresa("Hiper Festa", "hiperfesta@employer.com", "12.345.678/0001-10", "Brasil", "São Paulo", "96325-452", "Rede de festa")
-    p.addSkill("Liderança")
-    p.addSkill("Experiencia")
-    employers.add(p)
-    p = new Empresa("Google", "google@employer.com", "12.345.678/0001-10", "Estados Unidos", "Califórnia", "75369-159", "Tecnologia")
-    p.addSkill("Formação superior")
-    p.addSkill("Gestão")
-    employers.add(p)
-    p = new Empresa("Ford", "ford@employer.com", "12.345.678/0001-10", "Estados Unidos", "Dearborn", "86551-785", "Carros")
-    p.addSkill("Experiencia")
-    p.addSkill("Vendas")
-    employers.add(p)
-    p = new Empresa("Xiaomi", "xiaomi@employer.com", "12.345.678/0001-10", "China", "Haidian", "74659-156", "Celulares")
-    p.addSkill("Formacao superior")
-    p.addSkill("Vendas")
-    employers.add(p)
-    p = new Empresa("Polishop", "polishop@employer.com", "12.345.678/0001-10", "Brasil", "São Paulo", "95125-532", "Eletrodomesticos")
-    p.addSkill("Experiencia")
-    p.addSkill("Vendas")
-    employers.add(p)
     
     def option = -1
     do {
@@ -105,7 +65,10 @@ static void main(args) {
                 printInfo(employers)
                 break
             case 2:
-                printInfo(workers)
+                CandidatoDAO clienteDAO = new CandidatoDAO();
+                List<Candidato> lista = clienteDAO.listar();
+                for (Candidato candidato : lista)
+                    System.out.println(candidato);
                 break
             case 3:
                 employers.add(colectData(0))
