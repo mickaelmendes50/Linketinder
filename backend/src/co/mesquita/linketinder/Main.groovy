@@ -99,6 +99,11 @@ static void main(args) {
             case 7:
                 break
             case 8:
+                print "Digite o ID do candidato: "
+                int id = Integer.parseInt(System.in.newReader().readLine())
+
+                CandidatoDAO candidatoDAO = new CandidatoDAO();
+                candidatoDAO.remover(id);
                 break
             case 0:
                 break
