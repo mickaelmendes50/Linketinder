@@ -67,7 +67,43 @@ class CandidatoDAO {
             stmt.execute();
             return true;
         } catch (SQLException ex) {
-            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CandidatoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
+
+    public boolean alterar(Candidato candidato, int id) {
+        String sql = "UPDATE candidatos SET nome=?, sobrenome=?, email=?, senha=?, cpf=?, nascimento=?, pais=?, cep=?, descricao=? WHERE id=?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, candidato.getName());
+            stmt.setString(2, candidato.getSobrenome());
+            stmt.setString(3, candidato.getEmail());
+            stmt.setString(4, candidato.getSenha());
+            stmt.setString(5, candidato.getDocumento());
+            stmt.setString(6, candidato.getAge());
+            stmt.setString(7, candidato.getEstate());
+            stmt.setString(8, candidato.getCep());
+            stmt.setString(9, candidato.getDescription());
+
+            stmt.setInt(10, id);
+            stmt.execute();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(CandidatoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
+
+    public boolean remover(int id) {
+        String sql = "DELETE FROM candidatos WHERE id=?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, id);
+            stmt.execute();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(CandidatoDAO.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
     }

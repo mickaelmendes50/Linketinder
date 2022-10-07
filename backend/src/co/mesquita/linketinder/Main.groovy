@@ -57,6 +57,10 @@ static void main(args) {
         println "2. Listar candidatos"
         println "3. Adicionar empresa"
         println "4. Adicionar candidado"
+        println "5. Atualizar empresa"
+        println "6. Atualizar candidato"
+        println "7. Deletar empresa"
+        println "8. Deletar candidato"
         println "0. Sair"
     }
     
@@ -81,6 +85,20 @@ static void main(args) {
                 Candidato candidato = colectData(1)
                 CandidatoDAO candidatoDAO = new CandidatoDAO();
                 candidatoDAO.inserir(candidato);
+                break
+            case 5:
+                break
+            case 6:
+                print "Digite o ID do candidato: "
+                int id = Integer.parseInt(System.in.newReader().readLine())
+
+                Candidato candidato = colectData(1)
+                CandidatoDAO candidatoDAO = new CandidatoDAO();
+                candidatoDAO.alterar(candidato, id);
+                break
+            case 7:
+                break
+            case 8:
                 break
             case 0:
                 break
