@@ -2,53 +2,12 @@ package co.mesquita.linketinder
 
 import co.mesquita.linketinder.dao.CandidatoDAO
 import co.mesquita.linketinder.dao.EmpresaDAO
+import co.mesquita.linketinder.dao.VagaDAO
 
-import static co.mesquita.linketinder.crud.CreatePessoa.createPessoa
+import static co.mesquita.linketinder.crud.Create.*
 import co.mesquita.linketinder.entity.*
 
 static void main(args) {
-    def workers = []
-    def employers = []
-
-    def printInfo = { x ->
-        for (element in x) {
-            println element.toString()
-        }
-    }
-
-    def colectData = { type ->
-        if (type)
-            println "Adicionar novo Candidato"
-        else
-            println "Adicionar nova Empresa"
-
-        print "Nome: "
-        def name = System.in.newReader().readLine()
-        print "Sobrenome: "
-        def sobrenome = System.in.newReader().readLine()
-        print "Email: "
-        def senha = System.in.newReader().readLine()
-        print "senha: "
-        def email = System.in.newReader().readLine()
-        if (type)
-            print "CPF: "
-        else
-            print "CNPJ: "
-        def documento = System.in.newReader().readLine()
-        if (type)
-            print "Idade: "
-        else
-            print "Pais: "
-        def var = System.in.newReader().readLine()
-        print "Estado: "
-        def estate = System.in.newReader().readLine()
-        print "CEP: "
-        def cep = System.in.newReader().readLine()
-        print "Descriçao: "
-        def description = System.in.newReader().readLine()
-
-        return createPessoa(type, name, sobrenome, email, senha, documento, var, estate, cep, description)
-    }
 
     def printMenu = {
         println "------------------------------"
@@ -62,6 +21,40 @@ static void main(args) {
         println "6. Atualizar candidato"
         println "7. Deletar empresa"
         println "8. Deletar candidato"
+        println "9. Listar vagas"
+        println "0. Sair"
+    }
+
+    def printCandidato = {
+        println "------------------------------"
+        println "-- Bem vindo ao Linketinder --"
+        println "------------------------------"
+        println "1. Listar candidatos"
+        println "2. Adicionar candidado"
+        println "3. Atualizar candidato"
+        println "4. Deletar candidato"
+        println "0. Sair"
+    }
+
+    def printEmpresa = {
+        println "------------------------------"
+        println "-- Bem vindo ao Linketinder --"
+        println "------------------------------"
+        println "1. Listar empresas"
+        println "2. Adicionar empresa"
+        println "3. Atualizar empresa"
+        println "4. Deletar empresa"
+        println "0. Sair"
+    }
+
+    def printVaga = {
+        println "------------------------------"
+        println "-- Bem vindo ao Linketinder --"
+        println "------------------------------"
+        println "1. Listar vagas"
+        println "2. Adicionar vaga"
+        println "3. Atualizar vaga"
+        println "4. Deletar vaga"
         println "0. Sair"
     }
     
@@ -83,12 +76,12 @@ static void main(args) {
                     System.out.println(candidato);
                 break
             case 3:
-                Empresa empresa = colectData(0)
+                Empresa empresa = createEmpresa()
                 EmpresaDAO empresaDAO = new EmpresaDAO();
                 empresaDAO.inserir(empresa);
                 break
             case 4:
-                Candidato candidato = colectData(1)
+                Candidato candidato = createCandidato()
                 CandidatoDAO candidatoDAO = new CandidatoDAO();
                 candidatoDAO.inserir(candidato);
                 break
@@ -96,7 +89,7 @@ static void main(args) {
                 print "Digite o ID da empresa: "
                 int id = Integer.parseInt(System.in.newReader().readLine())
 
-                Empresa empresa = colectData(0)
+                Empresa empresa = createEmpresa()
                 EmpresaDAO empresaDAO = new EmpresaDAO();
                 empresaDAO.alterar(empresa, id);
                 break
@@ -104,7 +97,7 @@ static void main(args) {
                 print "Digite o ID do candidato: "
                 int id = Integer.parseInt(System.in.newReader().readLine())
 
-                Candidato candidato = colectData(1)
+                Candidato candidato = createCandidato()
                 CandidatoDAO candidatoDAO = new CandidatoDAO();
                 candidatoDAO.alterar(candidato, id);
                 break
@@ -121,6 +114,12 @@ static void main(args) {
 
                 CandidatoDAO candidatoDAO = new CandidatoDAO();
                 candidatoDAO.remover(id);
+                break
+            case 9:
+                VagaDAO vagaDAO = new VagaDAO();
+                List<Vaga> lista = vagaDAO.listar();
+                for (Vaga vaga : lista)
+                    System.out.println(vaga);
                 break
             case 0:
                 break

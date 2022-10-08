@@ -70,7 +70,7 @@ class EmpresaDAO {
         }
     }
 
-    public boolean alterar(Empresa empresa) {
+    public boolean alterar(Empresa empresa, int id) {
         String sql = "UPDATE empresas SET nome=?, email=?, senha=?, cnpj=?, pais=?, cep=?, descricao=? WHERE id=?";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
@@ -82,7 +82,7 @@ class EmpresaDAO {
             stmt.setString(6, empresa.getCep());
             stmt.setString(7, empresa.getDescription());
 
-            stmt.setInt(10, id);
+            stmt.setInt(8, id);
             stmt.execute();
             return true;
         } catch (SQLException ex) {

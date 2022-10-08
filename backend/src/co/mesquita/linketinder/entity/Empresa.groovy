@@ -2,7 +2,6 @@ package co.mesquita.linketinder.entity
 
 class Empresa extends Pessoa {
     private country
-    private documento
     private cep
     private description
 
@@ -23,7 +22,7 @@ class Empresa extends Pessoa {
     }
 
     String getDocumento() {
-        return documento
+        return super.getDocumento()
     }
 
     String getName() {
