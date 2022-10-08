@@ -1,6 +1,7 @@
 package co.mesquita.linketinder.crud
 
 import co.mesquita.linketinder.entity.Candidato
+import co.mesquita.linketinder.entity.Competencia
 import co.mesquita.linketinder.entity.Empresa
 import co.mesquita.linketinder.entity.Vaga
 
@@ -64,5 +65,14 @@ class Create {
         def descricao = System.in.newReader().readLine()
 
         return new Vaga(id_empresa, nome, descricao, local)
+    }
+
+    static createCompetencia() {
+        println "Dados da Vaga"
+
+        print "Nome: "
+        def nome = System.in.newReader().readLine()
+
+        return new Competencia(nome)
     }
 }
