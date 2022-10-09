@@ -1,6 +1,7 @@
 package co.mesquita.linketinder
 
 import co.mesquita.linketinder.dao.CandidatoDAO
+import co.mesquita.linketinder.dao.CandidatosCompetenciasDAO
 import co.mesquita.linketinder.dao.CompetenciaDAO
 import co.mesquita.linketinder.dao.EmpresaDAO
 import co.mesquita.linketinder.dao.VagaDAO
@@ -72,7 +73,19 @@ static void main(args) {
             case 6:
                 Candidato candidato = createCandidato()
                 CandidatoDAO candidatoDAO = new CandidatoDAO();
-                candidatoDAO.inserir(candidato);
+                int new_id = candidatoDAO.inserir(candidato);
+
+                CandidatosCompetenciasDAO ccDAO = new CandidatosCompetenciasDAO()
+                int id = 0
+                while (id != -1) {
+                    println "Digite o ID da Competencia para o Candidato: (Para finalizar digite -1)"
+                    id = Integer.parseInt(System.in.newReader().readLine())
+                    if (id > 0) {
+                        boolean tmp = ccDAO.inserir(new_id, id)
+                        if (tmp) println "Adicionada com sucesso"
+                    }
+                }
+
                 break
             case 7:
                 Vaga vaga = createVaga()

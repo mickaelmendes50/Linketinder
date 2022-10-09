@@ -7,6 +7,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 import java.sql.SQLException
+import java.sql.Statement
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -50,10 +51,10 @@ class CandidatoDAO {
         return candidatos;
     }
 
-    public boolean inserir(Candidato candidato) {
+    public int inserir(Candidato candidato) {
         String sql = "INSERT INTO candidatos (nome, sobrenome, email, senha, cpf, nascimento, pais, cep, descricao) VALUES(?,?,?,?,?,?,?,?,?)";
         try {
-            PreparedStatement stmt = connection.prepareStatement(sql);
+            PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, candidato.getName());
             stmt.setString(2, candidato.getSobrenome());
             stmt.setString(3, candidato.getEmail());
@@ -65,10 +66,12 @@ class CandidatoDAO {
             stmt.setString(9, candidato.getDescription());
 
             stmt.execute();
-            return true;
+            ResultSet rs = stmt.getGeneratedKeys();
+            if (rs.next())
+                return rs.getInt("id");
         } catch (SQLException ex) {
             Logger.getLogger(CandidatoDAO.class.getName()).log(Level.SEVERE, null, ex);
-            return false;
+            return -1;
         }
     }
 
