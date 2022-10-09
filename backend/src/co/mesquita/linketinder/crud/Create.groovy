@@ -56,7 +56,7 @@ class Create {
         println "Dados da Vaga"
 
         print "ID da Empresa: "
-        def id_empresa = System.in.newReader().readLine()
+        int id_empresa = Integer.parseInt(System.in.newReader().readLine())
         print "Nome: "
         def nome = System.in.newReader().readLine()
         print "Pais: "

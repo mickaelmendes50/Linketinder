@@ -20,4 +20,9 @@ class Competencia {
     String getNome() {
         return nome
     }
+
+    String toString() {
+        return "ID: " + getId() +
+                "\nNome: " + getNome()
+    }
 }

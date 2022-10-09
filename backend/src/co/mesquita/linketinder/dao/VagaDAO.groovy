@@ -5,6 +5,7 @@ import co.mesquita.linketinder.entity.Vaga
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.Statement
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -47,20 +48,22 @@ class VagaDAO {
         return vagas;
     }
 
-    public boolean inserir(Vaga vaga) {
+    public int inserir(Vaga vaga) {
         String sql = "INSERT INTO vagas (id_empresas, nome, descricao, local) VALUES(?,?,?,?)";
         try {
-            PreparedStatement stmt = connection.prepareStatement(sql);
+            PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             stmt.setInt(1, vaga.getIdEmpresa());
             stmt.setString(2, vaga.getNome());
             stmt.setString(3, vaga.getDescricao());
             stmt.setString(4, vaga.getLocal());
 
             stmt.execute();
-            return true;
+            ResultSet rs = stmt.getGeneratedKeys();
+            if (rs.next())
+                return rs.getInt("id");
         } catch (SQLException ex) {
             Logger.getLogger(VagaDAO.class.getName()).log(Level.SEVERE, null, ex);
-            return false;
+            return -1;
         }
     }
 
