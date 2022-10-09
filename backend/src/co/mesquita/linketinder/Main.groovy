@@ -107,7 +107,18 @@ static void main(args) {
             case 8:
                 Competencia competencia = createCompetencia()
                 CompetenciaDAO competenciaDAO = new CompetenciaDAO();
-                competenciaDAO.inserir(competencia);
+                List<Competencia> lista = competenciaDAO.listar();
+
+                def x = 0
+                for (int i = 0; i < lista.size(); i++) {
+                    if (lista.get(i).getNome() == competencia.getNome()) {
+                        println "Competencia já cadastrada"
+                        x = 1
+                        break
+                    }
+                }
+                if (x)
+                    competenciaDAO.inserir(competencia);
                 break
             case 9:
                 print "Digite o ID da empresa: "
