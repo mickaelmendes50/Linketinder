@@ -110,11 +110,11 @@ class App {
                     CompetenciaDAO competenciaDAO = new CompetenciaDAO();
                     List<Competencia> lista = competenciaDAO.listar();
 
-                    def x = 0
+                    def x = 1
                     for (int i = 0; i < lista.size(); i++) {
                         if (lista.get(i).getNome() == competencia.getNome()) {
                             println "Competencia já cadastrada"
-                            x = 1
+                            x = 0
                             break
                         }
                     }

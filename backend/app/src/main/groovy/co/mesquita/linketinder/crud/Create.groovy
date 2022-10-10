@@ -68,7 +68,7 @@ class Create {
     }
 
     static createCompetencia() {
-        println "Dados da Vaga"
+        println "Dados da Competencia"
 
         print "Nome: "
         def nome = System.in.newReader().readLine()
