@@ -4,11 +4,9 @@
 
 Para executar o backend:
 ```
-git clone https://github.com/mickaelmendes50/Linketinder.git && cd Linketinder/backend
+git clone https://github.com/mickaelmendes50/Linketinder.git
 ```
-```
-groovyc co/mesquita/linketinder/Main.groovy && groovy co/mesquita/linketinder/Main.groovy
-```
+E importe a pasta Linketinder/backend como um projeto da IntelliJ.
 
 Para executar o fronted:
 ```
