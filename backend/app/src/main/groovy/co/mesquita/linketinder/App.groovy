@@ -42,73 +42,65 @@ class App {
             option = System.in.newReader().readLine() as Integer
             switch(option) {
                 case 1:
-                    EmpresaDAO empresaDAO = new EmpresaDAO()
-                    List<Empresa> empresas = empresaDAO.listar()
+                    List<Empresa> empresas = EmpresaDAO.listar()
                     for (Empresa empresa : empresas)
                         System.out.println(empresa)
                     break
                 case 2:
-                    CandidatoDAO candidatoDAO = new CandidatoDAO()
-                    List<Candidato> candidatos = candidatoDAO.listar()
+                    List<Candidato> candidatos = CandidatoDAO.listar()
                     for (Candidato candidato : candidatos)
                         System.out.println(candidato)
                     break
                 case 3:
-                    VagaDAO vagaDAO = new VagaDAO()
-                    List<Vaga> vagas = vagaDAO.listar()
+                    List<Vaga> vagas = VagaDAO.listar()
                     for (Vaga vaga : vagas)
                         System.out.println(vaga)
                     break
                 case 4:
-                    CompetenciaDAO competenciaDAO = new CompetenciaDAO()
-                    List<Competencia> competencias = competenciaDAO.listar()
+                    List<Competencia> competencias = CompetenciaDAO.listar()
                     for (Competencia competencia : competencias)
                         System.out.println(competencia)
                     break
 
                 case 5:
                     Empresa empresa = createEmpresa()
-                    EmpresaDAO empresaDAO = new EmpresaDAO()
-                    empresaDAO.inserir(empresa)
+                    EmpresaDAO.inserir(empresa)
                     break
                 case 6:
                     Candidato candidato = createCandidato()
-                    CandidatoDAO candidatoDAO = new CandidatoDAO()
-                    int new_id = candidatoDAO.inserir(candidato)
+                    int new_id = CandidatoDAO.inserir(candidato)
 
-                    CandidatosCompetenciasDAO candidatosCompetenciasDAO = new CandidatosCompetenciasDAO()
                     int id = 0
                     while (id != -1) {
                         println "Digite o ID da Competencia para o Candidato: (Para finalizar digite -1)"
                         id = Integer.parseInt(System.in.newReader().readLine())
                         if (id > 0) {
-                            boolean tmp = candidatosCompetenciasDAO.inserir(new_id, id)
-                            if (tmp) println "Adicionada com sucesso"
+                            boolean isCreated = CandidatosCompetenciasDAO.inserir(new_id, id)
+                            if (isCreated)
+                                println "Adicionada com sucesso"
                         }
                     }
 
                     break
                 case 7:
                     Vaga vaga = createVaga()
-                    VagaDAO vagaDAO = new VagaDAO()
-                    int new_id = vagaDAO.inserir(vaga)
+                    int new_id = VagaDAO.inserir(vaga)
 
-                    VagasCompetenciasDAO vagasCompetenciasDAO = new VagasCompetenciasDAO()
                     int id = 0
                     while (id != -1) {
                         println "Digite o ID da Competencia para a vaga: (Para finalizar digite -1)"
                         id = Integer.parseInt(System.in.newReader().readLine())
                         if (id > 0) {
-                            boolean tmp = vagasCompetenciasDAO.inserir(new_id, id)
-                            if (tmp) println "Adicionada com sucesso"
+                            boolean isCreated = VagasCompetenciasDAO.inserir(new_id, id)
+                            if (isCreated)
+                                println "Adicionada com sucesso"
                         }
                     }
 
                     break
                 case 8:
                     Competencia competencia = createCompetencia()
-                    CompetenciaDAO competenciaDAO = new CompetenciaDAO()
-                    List<Competencia> competencias = competenciaDAO.listar()
+                    List<Competencia> competencias = CompetenciaDAO.listar()
 
                     def isCreated = false
                     for (int i = 0; i < competencias.size(); i++) {
@@ -119,67 +111,59 @@ class App {
                         }
                     }
                     if (!isCreated)
-                        competenciaDAO.inserir(competencia)
+                        CompetenciaDAO.inserir(competencia)
                     break
                 case 9:
                     print "Digite o ID da empresa: "
                     int id = Integer.parseInt(System.in.newReader().readLine())
 
                     Empresa empresa = createEmpresa()
-                    EmpresaDAO empresaDAO = new EmpresaDAO()
-                    empresaDAO.alterar(empresa, id)
+                    EmpresaDAO.alterar(empresa, id)
                     break
                 case 10:
                     print "Digite o ID do candidato: "
                     int id = Integer.parseInt(System.in.newReader().readLine())
 
                     Candidato candidato = createCandidato()
-                    CandidatoDAO candidatoDAO = new CandidatoDAO()
-                    candidatoDAO.alterar(candidato, id)
+                    CandidatoDAO.alterar(candidato, id)
                     break
                 case 11:
                     print "Digite o ID da vaga: "
                     int id = Integer.parseInt(System.in.newReader().readLine())
 
                     Vaga vaga = createVaga()
-                    VagaDAO vagaDAO = new VagaDAO()
-                    vagaDAO.alterar(vaga, id)
+                    VagaDAO.alterar(vaga, id)
                     break
                 case 12:
                     print "Digite o ID da competencia: "
                     int id = Integer.parseInt(System.in.newReader().readLine())
 
                     Competencia competencia = createCompetencia()
-                    CompetenciaDAO competenciaDAO = new CompetenciaDAO()
-                    competenciaDAO.alterar(competencia, id)
+                    CompetenciaDAO.alterar(competencia, id)
                     break
                 case 13:
                     print "Digite o ID da empresa: "
                     int id = Integer.parseInt(System.in.newReader().readLine())
 
-                    EmpresaDAO empresaDAO = new EmpresaDAO()
-                    empresaDAO.remover(id)
+                    EmpresaDAO.remover(id)
                     break
                 case 14:
                     print "Digite o ID do candidato: "
                     int id = Integer.parseInt(System.in.newReader().readLine())
 
-                    CandidatoDAO candidatoDAO = new CandidatoDAO()
-                    candidatoDAO.remover(id)
+                    CandidatoDAO.remover(id)
                     break
                 case 15:
                     print "Digite o ID da vaga: "
                     int id = Integer.parseInt(System.in.newReader().readLine())
 
-                    VagaDAO vagaDAO = new VagaDAO()
-                    vagaDAO.remover(id)
+                    VagaDAO.remover(id)
                     break
                 case 16:
                     print "Digite o ID da competencia: "
                     int id = Integer.parseInt(System.in.newReader().readLine())
 
-                    CompetenciaDAO competenciaDAO = new CompetenciaDAO()
-                    competenciaDAO.remover(id)
+                    CompetenciaDAO.remover(id)
                     break
                 case 0:
                     break

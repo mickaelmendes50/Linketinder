@@ -3,29 +3,18 @@ package co.mesquita.linketinder.dao
 import co.mesquita.linketinder.entity.Empresa
 
 import java.sql.Connection
-import java.sql.DriverManager
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 import java.sql.SQLException
 import java.util.logging.Level
 import java.util.logging.Logger
 
+import static co.mesquita.linketinder.repository.Repository.connectRepository
+
 class EmpresaDAO {
-    private Connection connection
+    private static Connection connection = connectRepository()
 
-    private final String DATABASE_URL = "jdbc:postgresql://localhost:5432/linketinder"
-    private final String USUARIO = "postgres"
-    private final String SENHA = "stark15"
-
-    EmpresaDAO() {
-        try {
-            this.connection = DriverManager.getConnection(DATABASE_URL, USUARIO, SENHA)
-        } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(EmpresaDAO.class.getName()).log(Level.SEVERE, null, ex)
-        }
-    }
-
-    List<Empresa> listar() {
+    static List<Empresa> listar() {
         final String SQL_SELECT = "SELECT * FROM empresas"
         List<Empresa> empresas = new ArrayList<>()
         try {
@@ -48,7 +37,7 @@ class EmpresaDAO {
         return empresas
     }
 
-    boolean inserir(Empresa empresa) {
+    static boolean inserir(Empresa empresa) {
         final String SQL_INSERT = "INSERT INTO empresas (nome, email, senha, cnpj, pais, cep, descricao) VALUES(?,?,?,?,?,?,?)"
         try {
             PreparedStatement stmt = connection.prepareStatement(SQL_INSERT)
@@ -68,7 +57,7 @@ class EmpresaDAO {
         }
     }
 
-    boolean alterar(Empresa empresa, int id) {
+    static boolean alterar(Empresa empresa, int id) {
         final String SQL_UPDATE = "UPDATE empresas SET nome=?, email=?, senha=?, cnpj=?, pais=?, cep=?, descricao=? WHERE id=?"
         try {
             PreparedStatement stmt = connection.prepareStatement(SQL_UPDATE)
@@ -89,7 +78,7 @@ class EmpresaDAO {
         }
     }
 
-    boolean remover(int id) {
+    static boolean remover(int id) {
         final String SQL_DELETE = "DELETE FROM empresas WHERE id=?"
         try {
             PreparedStatement stmt = connection.prepareStatement(SQL_DELETE)

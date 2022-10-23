@@ -3,7 +3,6 @@ package co.mesquita.linketinder.dao
 import co.mesquita.linketinder.entity.Vaga
 
 import java.sql.Connection
-import java.sql.DriverManager
 import java.sql.PreparedStatement
 import java.sql.Statement
 import java.sql.ResultSet
@@ -11,22 +10,12 @@ import java.sql.SQLException
 import java.util.logging.Level
 import java.util.logging.Logger
 
+import static co.mesquita.linketinder.repository.Repository.connectRepository
+
 class VagaDAO {
-    private Connection connection
+    private static Connection connection = connectRepository()
 
-    private final String DATABASE_URL = "jdbc:postgresql://localhost:5432/linketinder"
-    private final String usuario = "postgres"
-    private final String senha = "stark15"
-
-    VagaDAO() {
-        try {
-            this.connection = DriverManager.getConnection(DATABASE_URL, usuario, senha)
-        } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(VagaDAO.class.getName()).log(Level.SEVERE, null, ex)
-        }
-    }
-
-    List<Vaga> listar() {
+    static List<Vaga> listar() {
         final String SQL_SELECT = "SELECT * FROM vagas"
         List<Vaga> vagas = new ArrayList<>()
         try {
@@ -46,7 +35,7 @@ class VagaDAO {
         return vagas
     }
 
-    int inserir(Vaga vaga) {
+    static int inserir(Vaga vaga) {
         final String SQL_INSERT = "INSERT INTO vagas (id_empresas, nome, descricao, local) VALUES(?,?,?,?)"
         try {
             PreparedStatement stmt = connection.prepareStatement(SQL_INSERT, Statement.RETURN_GENERATED_KEYS)
@@ -65,7 +54,7 @@ class VagaDAO {
         }
     }
 
-    boolean alterar(Vaga vaga, int id) {
+    static boolean alterar(Vaga vaga, int id) {
         final String SQL_UPDATE = "UPDATE vagas SET id_empresas=?, nome=?, descricao=?, local=? WHERE id=?"
         try {
             PreparedStatement stmt = connection.prepareStatement(SQL_UPDATE)
@@ -83,7 +72,7 @@ class VagaDAO {
         }
     }
 
-    boolean remover(int id) {
+    static boolean remover(int id) {
         final String SQL_DELETE = "DELETE FROM vagas WHERE id=?"
         try {
             PreparedStatement stmt = connection.prepareStatement(SQL_DELETE)

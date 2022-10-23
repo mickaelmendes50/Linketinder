@@ -1,29 +1,17 @@
 package co.mesquita.linketinder.dao
 
 import java.sql.Connection
-import java.sql.DriverManager
 import java.sql.PreparedStatement
 import java.sql.SQLException
 import java.util.logging.Level
 import java.util.logging.Logger
 
+import static co.mesquita.linketinder.repository.Repository.connectRepository
+
 class CandidatosCompetenciasDAO {
+    private static Connection connection = connectRepository()
 
-    private Connection connection
-
-    private final String DATABASE_URL = "jdbc:postgresql://localhost:5432/linketinder"
-    private final String USUARIO = "postgres"
-    private final String SENHA = "stark15"
-
-    CandidatosCompetenciasDAO() {
-        try {
-            this.connection = DriverManager.getConnection(DATABASE_URL, USUARIO, SENHA)
-        } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(VagasCompetenciasDAO.class.getName()).log(Level.SEVERE, null, ex)
-        }
-    }
-
-    boolean inserir(int id_candidato, int id_competencia) {
+    static boolean inserir(int id_candidato, int id_competencia) {
         final String SQL_INSERT = "INSERT INTO candidatos_competencias (id_candidatos, id_competencias) VALUES(?,?)"
         try {
             PreparedStatement stmt = connection.prepareStatement(SQL_INSERT)

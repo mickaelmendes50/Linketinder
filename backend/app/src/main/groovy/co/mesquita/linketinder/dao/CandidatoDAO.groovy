@@ -3,7 +3,6 @@ package co.mesquita.linketinder.dao
 import co.mesquita.linketinder.entity.Candidato
 
 import java.sql.Connection
-import java.sql.DriverManager
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 import java.sql.SQLException
@@ -11,22 +10,12 @@ import java.sql.Statement
 import java.util.logging.Level
 import java.util.logging.Logger
 
+import static co.mesquita.linketinder.repository.Repository.connectRepository
+
 class CandidatoDAO {
-    private Connection connection
+    private static Connection connection = connectRepository()
 
-    private final String DATABASE_URL = "jdbc:postgresql://localhost:5432/linketinder"
-    private final String USUARIO = "postgres"
-    private final String SENHA = "stark15"
-
-    CandidatoDAO() {
-        try {
-            this.connection = DriverManager.getConnection(DATABASE_URL, USUARIO, SENHA)
-        } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(CandidatoDAO.class.getName()).log(Level.SEVERE, null, ex)
-        }
-    }
-
-    List<Candidato> listar() {
+    static List<Candidato> listar() {
         final String SQL_SELECT = "SELECT * FROM candidatos"
         List<Candidato> candidatos = new ArrayList<>()
         try {
@@ -51,7 +40,7 @@ class CandidatoDAO {
         return candidatos
     }
 
-    int inserir(Candidato candidato) {
+    static int inserir(Candidato candidato) {
         final String SQL_INSERT = "INSERT INTO candidatos (nome, sobrenome, email, senha, cpf, nascimento, pais, cep, descricao) VALUES(?,?,?,?,?,?,?,?,?)"
         try {
             PreparedStatement stmt = connection.prepareStatement(SQL_INSERT, Statement.RETURN_GENERATED_KEYS)
@@ -75,7 +64,7 @@ class CandidatoDAO {
         }
     }
 
-    boolean alterar(Candidato candidato, int id) {
+    static boolean alterar(Candidato candidato, int id) {
         final String SQL_UPDATE = "UPDATE candidatos SET nome=?, sobrenome=?, email=?, senha=?, cpf=?, nascimento=?, pais=?, cep=?, descricao=? WHERE id=?"
         try {
             PreparedStatement stmt = connection.prepareStatement(SQL_UPDATE)
@@ -98,7 +87,7 @@ class CandidatoDAO {
         }
     }
 
-    boolean remover(int id) {
+    static boolean remover(int id) {
         final String SQL_DELETE = "DELETE FROM candidatos WHERE id=?"
         try {
             PreparedStatement stmt = connection.prepareStatement(SQL_DELETE)
