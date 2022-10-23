@@ -13,16 +13,15 @@
   <component name="ChangeListManager">
     <list default="true" id="38469fdb-a368-4cbf-bebd-85bb37008de1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.bin/atob" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.bin/atob" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.bin/live-server" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.bin/live-server" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.bin/mime" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.bin/mime" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.bin/uuid" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.bin/uuid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/groovy/co/mesquita/linketinder/App.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/groovy/co/mesquita/linketinder/App.groovy" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -60,6 +59,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
   <component name="ProjectId" id="2Fof0NHEquiu92eiQf3kuGWg6f6" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -78,7 +80,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-18&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/micka/Desktop/GitHub/Linketinder/backend&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/GitHub/Linketinder/backend&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -213,6 +215,7 @@
     <option name="version" value="3" />
   </component>
   <component name="UnloadedModulesList">
+    <module name="linketinder.app.test" />
     <module name="test" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

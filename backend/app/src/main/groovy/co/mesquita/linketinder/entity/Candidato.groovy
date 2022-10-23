@@ -6,25 +6,28 @@ class Candidato extends Pessoa {
     private estate
     private cep
     private description
+    private documento
 
     private def skills = []
 
     Candidato(id, name, sobrenome, email, senha, documento, nascimento, estate, cep, description) {
-        super(id, name, email, senha, documento)
+        super(id, name, email, senha)
         this.sobrenome = sobrenome
         this.nascimento = nascimento
         this.estate = estate
         this.cep = cep
         this.description = description
+        this.documento = documento
     }
 
     Candidato(name, sobrenome, email, senha, documento, nascimento, estate, cep, description) {
-        super(name, email, senha, documento)
+        super(name, email, senha)
         this.sobrenome = sobrenome
         this.nascimento = nascimento
         this.estate = estate
         this.cep = cep
         this.description = description
+        this.documento = documento
     }
 
     String getName() {
@@ -63,6 +66,10 @@ class Candidato extends Pessoa {
         return this.description
     }
 
+    String getDocumento() {
+        return this.documento
+    }
+
     String getSkills () {
         def tmp = ""
         for (x in this.skills) {
@@ -77,7 +84,8 @@ class Candidato extends Pessoa {
 
     String toString() {
         return "-----------------------------------------------------\n" +
-               super.toString(1) + 
+               super.toString() +
+               "\nCPF: " + getDocumento() +
                "\nNascimento: " + getAge() +
                "\nEstado: " + getEstate() +
                "\nCEP: " + getCep() +

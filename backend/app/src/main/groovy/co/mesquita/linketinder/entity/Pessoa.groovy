@@ -5,30 +5,18 @@ abstract class Pessoa {
     private name
     private email
     private senha
-    // CPF - CNPJ
-    private documento
 
-    Pessoa(id, name, email, senha, documento) {
+    Pessoa(id, name, email, senha) {
         this.id = id
         this.name = name
         this.email = email
         this.senha = senha
-        this.documento = documento
     }
 
-    Pessoa(name, email, senha, documento) {
+    Pessoa(name, email, senha) {
         this.name = name
         this.email = email
         this.senha = senha
-        this.documento = documento
-    }
-
-
-    String getDocumento() {
-        return documento
-    }
-
-    void setDocumento(documento) {
         this.documento = documento
     }
 
@@ -64,18 +52,9 @@ abstract class Pessoa {
         this.id = id
     }
 
-    // Tipo 1 = CPF
-    // Tipo 0 = CNPJ
-    String toString(type) {
-        if (type)
-            type = "CPF: "
-        else
-            type = "CNPJ: "
-
+    String toString() {
         return  "ID: " + getId() +
                 "\nNome: " + getName() +
-                "\nEmail: " + getEmail() +
-                "\n" + type + getDocumento()
-
+                "\nEmail: " + getEmail()
     }
 }
