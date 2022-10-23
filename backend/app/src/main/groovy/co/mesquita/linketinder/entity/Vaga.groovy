@@ -41,4 +41,13 @@ class Vaga {
     String getLocal() {
         return local
     }
+
+    String toString() {
+        return "------------------------------------------" +
+               "\nID: " + getId() +
+               "\nEmpresa (ID): " + getIdEmpresa() +
+               "\nNome: " + getNome() +
+               "\nDescricao: " + getDescricao() +
+               "\nLocal: " + getLocal()
+    }
 }
