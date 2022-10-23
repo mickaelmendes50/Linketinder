@@ -11,8 +11,10 @@ import static co.mesquita.linketinder.repository.Repository.connectRepository
 class CandidatosCompetenciasDAO {
     private static Connection connection = connectRepository()
 
+    private static final String SQL_INSERT =
+            "INSERT INTO candidatos_competencias (id_candidatos, id_competencias) VALUES(?,?)"
+
     static boolean inserir(int id_candidato, int id_competencia) {
-        final String SQL_INSERT = "INSERT INTO candidatos_competencias (id_candidatos, id_competencias) VALUES(?,?)"
         try {
             PreparedStatement stmt = connection.prepareStatement(SQL_INSERT)
             stmt.setInt(1, id_candidato)

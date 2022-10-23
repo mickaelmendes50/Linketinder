@@ -15,8 +15,16 @@ import static co.mesquita.linketinder.repository.Repository.connectRepository
 class VagaDAO {
     private static Connection connection = connectRepository()
 
+    private static final String SQL_SELECT =
+            "SELECT * FROM vagas"
+    private static final String SQL_INSERT =
+            "INSERT INTO vagas (id_empresas, nome, descricao, local) VALUES(?,?,?,?)"
+    private static final String SQL_UPDATE =
+            "UPDATE vagas SET id_empresas=?, nome=?, descricao=?, local=? WHERE id=?"
+    private static final String SQL_DELETE =
+            "DELETE FROM vagas WHERE id=?"
+
     static List<Vaga> listar() {
-        final String SQL_SELECT = "SELECT * FROM vagas"
         List<Vaga> vagas = new ArrayList<>()
         try {
             PreparedStatement stmt = connection.prepareStatement(SQL_SELECT)
@@ -36,7 +44,6 @@ class VagaDAO {
     }
 
     static int inserir(Vaga vaga) {
-        final String SQL_INSERT = "INSERT INTO vagas (id_empresas, nome, descricao, local) VALUES(?,?,?,?)"
         try {
             PreparedStatement stmt = connection.prepareStatement(SQL_INSERT, Statement.RETURN_GENERATED_KEYS)
             stmt.setInt(1, vaga.getIdEmpresa())
@@ -55,7 +62,6 @@ class VagaDAO {
     }
 
     static boolean alterar(Vaga vaga, int id) {
-        final String SQL_UPDATE = "UPDATE vagas SET id_empresas=?, nome=?, descricao=?, local=? WHERE id=?"
         try {
             PreparedStatement stmt = connection.prepareStatement(SQL_UPDATE)
             stmt.setInt(1, vaga.getIdEmpresa())
@@ -73,7 +79,6 @@ class VagaDAO {
     }
 
     static boolean remover(int id) {
-        final String SQL_DELETE = "DELETE FROM vagas WHERE id=?"
         try {
             PreparedStatement stmt = connection.prepareStatement(SQL_DELETE)
             stmt.setInt(1, id)

@@ -14,8 +14,16 @@ import static co.mesquita.linketinder.repository.Repository.connectRepository
 class EmpresaDAO {
     private static Connection connection = connectRepository()
 
+    private static final String SQL_SELECT =
+            "SELECT * FROM empresas"
+    private static final String SQL_INSERT =
+            "INSERT INTO empresas (nome, email, senha, cnpj, pais, cep, descricao) VALUES(?,?,?,?,?,?,?)"
+    private static final String SQL_UPDATE =
+            "UPDATE empresas SET nome=?, email=?, senha=?, cnpj=?, pais=?, cep=?, descricao=? WHERE id=?"
+    private static final String SQL_DELETE =
+            "DELETE FROM empresas WHERE id=?"
+
     static List<Empresa> listar() {
-        final String SQL_SELECT = "SELECT * FROM empresas"
         List<Empresa> empresas = new ArrayList<>()
         try {
             PreparedStatement stmt = connection.prepareStatement(SQL_SELECT)
@@ -38,7 +46,6 @@ class EmpresaDAO {
     }
 
     static boolean inserir(Empresa empresa) {
-        final String SQL_INSERT = "INSERT INTO empresas (nome, email, senha, cnpj, pais, cep, descricao) VALUES(?,?,?,?,?,?,?)"
         try {
             PreparedStatement stmt = connection.prepareStatement(SQL_INSERT)
             stmt.setString(1, empresa.getName())
@@ -58,7 +65,6 @@ class EmpresaDAO {
     }
 
     static boolean alterar(Empresa empresa, int id) {
-        final String SQL_UPDATE = "UPDATE empresas SET nome=?, email=?, senha=?, cnpj=?, pais=?, cep=?, descricao=? WHERE id=?"
         try {
             PreparedStatement stmt = connection.prepareStatement(SQL_UPDATE)
             stmt.setString(1, empresa.getName())
@@ -79,7 +85,6 @@ class EmpresaDAO {
     }
 
     static boolean remover(int id) {
-        final String SQL_DELETE = "DELETE FROM empresas WHERE id=?"
         try {
             PreparedStatement stmt = connection.prepareStatement(SQL_DELETE)
             stmt.setInt(1, id)

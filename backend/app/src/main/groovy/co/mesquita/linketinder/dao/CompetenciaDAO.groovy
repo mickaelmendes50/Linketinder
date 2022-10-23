@@ -14,8 +14,12 @@ import static co.mesquita.linketinder.repository.Repository.connectRepository
 class CompetenciaDAO {
     private static Connection connection = connectRepository()
 
+    private static final String SQL_SELECT = "SELECT * FROM competencias"
+    private static final String SQL_INSERT = "INSERT INTO competencias (nome) VALUES(?)"
+    private static final String SQL_UPDATE = "UPDATE competencias SET nome=? WHERE id=?"
+    private static final String SQL_DELETE = "DELETE FROM competencias WHERE id=?"
+
     static List<Competencia> listar() {
-        final String SQL_SELECT = "SELECT * FROM competencias"
         List<Competencia> competencias = new ArrayList<>()
         try {
             PreparedStatement stmt = connection.prepareStatement(SQL_SELECT)
@@ -32,7 +36,6 @@ class CompetenciaDAO {
     }
 
     static boolean inserir(Competencia competencia) {
-        final String SQL_INSERT = "INSERT INTO competencias (nome) VALUES(?)"
         try {
             PreparedStatement stmt = connection.prepareStatement(SQL_INSERT)
             stmt.setString(1, competencia.getNome())
@@ -46,7 +49,6 @@ class CompetenciaDAO {
     }
 
     static boolean alterar(Competencia competencia, int id) {
-        final String SQL_UPDATE = "UPDATE competencias SET nome=? WHERE id=?"
         try {
             PreparedStatement stmt = connection.prepareStatement(SQL_UPDATE)
             stmt.setString(1, competencia.getNome())
@@ -61,7 +63,6 @@ class CompetenciaDAO {
     }
 
     static boolean remover(int id) {
-        final String SQL_DELETE = "DELETE FROM competencias WHERE id=?"
         try {
             PreparedStatement stmt = connection.prepareStatement(SQL_DELETE)
             stmt.setInt(1, id)

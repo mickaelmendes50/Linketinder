@@ -15,8 +15,16 @@ import static co.mesquita.linketinder.repository.Repository.connectRepository
 class CandidatoDAO {
     private static Connection connection = connectRepository()
 
+    private static final String SQL_SELECT =
+            "SELECT * FROM candidatos"
+    private static final String SQL_INSERT =
+            "INSERT INTO candidatos (nome, sobrenome, email, senha, cpf, nascimento, pais, cep, descricao) VALUES(?,?,?,?,?,?,?,?,?)"
+    private static final String SQL_UPDATE =
+            "UPDATE candidatos SET nome=?, sobrenome=?, email=?, senha=?, cpf=?, nascimento=?, pais=?, cep=?, descricao=? WHERE id=?"
+    private static final String SQL_DELETE =
+            "DELETE FROM candidatos WHERE id=?"
+
     static List<Candidato> listar() {
-        final String SQL_SELECT = "SELECT * FROM candidatos"
         List<Candidato> candidatos = new ArrayList<>()
         try {
             PreparedStatement stmt = connection.prepareStatement(SQL_SELECT)
@@ -41,7 +49,6 @@ class CandidatoDAO {
     }
 
     static int inserir(Candidato candidato) {
-        final String SQL_INSERT = "INSERT INTO candidatos (nome, sobrenome, email, senha, cpf, nascimento, pais, cep, descricao) VALUES(?,?,?,?,?,?,?,?,?)"
         try {
             PreparedStatement stmt = connection.prepareStatement(SQL_INSERT, Statement.RETURN_GENERATED_KEYS)
             stmt.setString(1, candidato.getName())
@@ -65,7 +72,6 @@ class CandidatoDAO {
     }
 
     static boolean alterar(Candidato candidato, int id) {
-        final String SQL_UPDATE = "UPDATE candidatos SET nome=?, sobrenome=?, email=?, senha=?, cpf=?, nascimento=?, pais=?, cep=?, descricao=? WHERE id=?"
         try {
             PreparedStatement stmt = connection.prepareStatement(SQL_UPDATE)
             stmt.setString(1, candidato.getName())
@@ -88,7 +94,6 @@ class CandidatoDAO {
     }
 
     static boolean remover(int id) {
-        final String SQL_DELETE = "DELETE FROM candidatos WHERE id=?"
         try {
             PreparedStatement stmt = connection.prepareStatement(SQL_DELETE)
             stmt.setInt(1, id)
