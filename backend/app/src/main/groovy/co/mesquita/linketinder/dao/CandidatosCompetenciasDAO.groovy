@@ -9,31 +9,31 @@ import java.util.logging.Logger
 
 class CandidatosCompetenciasDAO {
 
-    private Connection connection;
+    private Connection connection
+
+    private final String DATABASE_URL = "jdbc:postgresql://localhost:5432/linketinder"
+    private final String USUARIO = "postgres"
+    private final String SENHA = "stark15"
 
     CandidatosCompetenciasDAO() {
         try {
-            String DATABASE_URL = "jdbc:postgresql://localhost:5432/linketinder";
-            String usuario = "postgres";
-            String senha = "stark15";
-
-            this.connection = DriverManager.getConnection(DATABASE_URL, usuario, senha);
+            this.connection = DriverManager.getConnection(DATABASE_URL, USUARIO, SENHA)
         } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(VagasCompetenciasDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(VagasCompetenciasDAO.class.getName()).log(Level.SEVERE, null, ex)
         }
     }
 
-    public boolean inserir(int id_candidato, int id_competencia) {
-        String sql = "INSERT INTO candidatos_competencias (id_candidatos, id_competencias) VALUES(?,?)";
+    boolean inserir(int id_candidato, int id_competencia) {
+        final String SQL_INSERT = "INSERT INTO candidatos_competencias (id_candidatos, id_competencias) VALUES(?,?)"
         try {
-            PreparedStatement stmt = connection.prepareStatement(sql)
+            PreparedStatement stmt = connection.prepareStatement(SQL_INSERT)
             stmt.setInt(1, id_candidato)
             stmt.setInt(2, id_competencia)
 
             stmt.execute()
             return true
         } catch (SQLException ex) {
-            Logger.getLogger(CandidatosCompetenciasDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CandidatosCompetenciasDAO.class.getName()).log(Level.SEVERE, null, ex)
             return false
         }
     }
