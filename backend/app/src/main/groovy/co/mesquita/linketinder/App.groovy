@@ -43,26 +43,26 @@ class App {
             switch(option) {
                 case 1:
                     EmpresaDAO empresaDAO = new EmpresaDAO();
-                    List<Empresa> lista = empresaDAO.listar();
-                    for (Empresa empresa : lista)
+                    List<Empresa> empresas = empresaDAO.listar();
+                    for (Empresa empresa : empresas)
                         System.out.println(empresa);
                     break
                 case 2:
                     CandidatoDAO candidatoDAO = new CandidatoDAO();
-                    List<Candidato> lista = candidatoDAO.listar();
-                    for (Candidato candidato : lista)
+                    List<Candidato> candidatos = candidatoDAO.listar();
+                    for (Candidato candidato : candidatos)
                         System.out.println(candidato);
                     break
                 case 3:
                     VagaDAO vagaDAO = new VagaDAO();
-                    List<Vaga> lista = vagaDAO.listar();
-                    for (Vaga vaga : lista)
+                    List<Vaga> vagas = vagaDAO.listar();
+                    for (Vaga vaga : vagas)
                         System.out.println(vaga);
                     break
                 case 4:
                     CompetenciaDAO competenciaDAO = new CompetenciaDAO();
-                    List<Competencia> lista = competenciaDAO.listar();
-                    for (Competencia competencia : lista)
+                    List<Competencia> competencias = competenciaDAO.listar();
+                    for (Competencia competencia : competencias)
                         System.out.println(competencia);
                     break
 
@@ -76,13 +76,13 @@ class App {
                     CandidatoDAO candidatoDAO = new CandidatoDAO();
                     int new_id = candidatoDAO.inserir(candidato);
 
-                    CandidatosCompetenciasDAO ccDAO = new CandidatosCompetenciasDAO()
+                    CandidatosCompetenciasDAO candidatosCompetenciasDAO = new CandidatosCompetenciasDAO()
                     int id = 0
                     while (id != -1) {
                         println "Digite o ID da Competencia para o Candidato: (Para finalizar digite -1)"
                         id = Integer.parseInt(System.in.newReader().readLine())
                         if (id > 0) {
-                            boolean tmp = ccDAO.inserir(new_id, id)
+                            boolean tmp = candidatosCompetenciasDAO.inserir(new_id, id)
                             if (tmp) println "Adicionada com sucesso"
                         }
                     }
@@ -93,13 +93,13 @@ class App {
                     VagaDAO vagaDAO = new VagaDAO();
                     int new_id = vagaDAO.inserir(vaga);
 
-                    VagasCompetenciasDAO vcDAO = new VagasCompetenciasDAO()
+                    VagasCompetenciasDAO vagasCompetenciasDAO = new VagasCompetenciasDAO()
                     int id = 0
                     while (id != -1) {
                         println "Digite o ID da Competencia para a vaga: (Para finalizar digite -1)"
                         id = Integer.parseInt(System.in.newReader().readLine())
                         if (id > 0) {
-                            boolean tmp = vcDAO.inserir(new_id, id)
+                            boolean tmp = vagasCompetenciasDAO.inserir(new_id, id)
                             if (tmp) println "Adicionada com sucesso"
                         }
                     }
@@ -108,17 +108,17 @@ class App {
                 case 8:
                     Competencia competencia = createCompetencia()
                     CompetenciaDAO competenciaDAO = new CompetenciaDAO();
-                    List<Competencia> lista = competenciaDAO.listar();
+                    List<Competencia> competencias = competenciaDAO.listar();
 
-                    def x = 1
-                    for (int i = 0; i < lista.size(); i++) {
-                        if (lista.get(i).getNome() == competencia.getNome()) {
+                    def isCreated = false
+                    for (int i = 0; i < competencias.size(); i++) {
+                        if (competencias.get(i).getNome() == competencia.getNome()) {
                             println "Competencia já cadastrada"
-                            x = 0
+                            isCreated = true
                             break
                         }
                     }
-                    if (x)
+                    if (!isCreated)
                         competenciaDAO.inserir(competencia);
                     break
                 case 9:
