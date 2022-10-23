@@ -6,8 +6,6 @@ class Empresa extends Pessoa {
     private description
     private documento
 
-    private def skills = []
-
     Empresa(id, name, email, senha, documento, country, cep, description) {
         super(id, name, email, senha)
         this.country = country
@@ -52,25 +50,12 @@ class Empresa extends Pessoa {
         return this.description
     }
 
-    String getSkills () {
-        def tmp = ""
-        for (x in this.skills) {
-            tmp += x + ", "
-        }
-        return tmp
-    }
-
-    void addSkill(skill) {
-        this.skills.add(skill)
-    }
-
     String toString() {
         return "-----------------------------------------------------\n" +
                super.toString() +
                "\nCNPJ: " + getDocumento() +
                "\nPaís: " + getCountry() +
                "\nCEP: " + getCep() +
-               "\nDescrição: " + getDescription() +
-               "\nCompetencias: " + getSkills()
+               "\nDescrição: " + getDescription()
     }
 }

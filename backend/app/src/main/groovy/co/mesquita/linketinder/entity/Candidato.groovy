@@ -8,8 +8,6 @@ class Candidato extends Pessoa {
     private description
     private documento
 
-    private def skills = []
-
     Candidato(id, name, sobrenome, email, senha, documento, nascimento, estate, cep, description) {
         super(id, name, email, senha)
         this.sobrenome = sobrenome
@@ -70,18 +68,6 @@ class Candidato extends Pessoa {
         return this.documento
     }
 
-    String getSkills () {
-        def tmp = ""
-        for (x in this.skills) {
-            tmp += x + ", "
-        }
-        return tmp
-    }
-
-    void addSkill(skill) {
-        this.skills.add(skill)
-    }
-
     String toString() {
         return "-----------------------------------------------------\n" +
                super.toString() +
@@ -89,7 +75,6 @@ class Candidato extends Pessoa {
                "\nNascimento: " + getAge() +
                "\nEstado: " + getEstate() +
                "\nCEP: " + getCep() +
-               "\nDescrição: " + getDescription() +
-               "\nCompetencias: " + getSkills()
+               "\nDescrição: " + getDescription()
     }
 }
