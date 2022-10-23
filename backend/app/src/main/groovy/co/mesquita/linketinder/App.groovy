@@ -42,39 +42,39 @@ class App {
             option = System.in.newReader().readLine() as Integer
             switch(option) {
                 case 1:
-                    EmpresaDAO empresaDAO = new EmpresaDAO();
-                    List<Empresa> empresas = empresaDAO.listar();
+                    EmpresaDAO empresaDAO = new EmpresaDAO()
+                    List<Empresa> empresas = empresaDAO.listar()
                     for (Empresa empresa : empresas)
-                        System.out.println(empresa);
+                        System.out.println(empresa)
                     break
                 case 2:
-                    CandidatoDAO candidatoDAO = new CandidatoDAO();
-                    List<Candidato> candidatos = candidatoDAO.listar();
+                    CandidatoDAO candidatoDAO = new CandidatoDAO()
+                    List<Candidato> candidatos = candidatoDAO.listar()
                     for (Candidato candidato : candidatos)
-                        System.out.println(candidato);
+                        System.out.println(candidato)
                     break
                 case 3:
-                    VagaDAO vagaDAO = new VagaDAO();
-                    List<Vaga> vagas = vagaDAO.listar();
+                    VagaDAO vagaDAO = new VagaDAO()
+                    List<Vaga> vagas = vagaDAO.listar()
                     for (Vaga vaga : vagas)
-                        System.out.println(vaga);
+                        System.out.println(vaga)
                     break
                 case 4:
-                    CompetenciaDAO competenciaDAO = new CompetenciaDAO();
-                    List<Competencia> competencias = competenciaDAO.listar();
+                    CompetenciaDAO competenciaDAO = new CompetenciaDAO()
+                    List<Competencia> competencias = competenciaDAO.listar()
                     for (Competencia competencia : competencias)
-                        System.out.println(competencia);
+                        System.out.println(competencia)
                     break
 
                 case 5:
                     Empresa empresa = createEmpresa()
-                    EmpresaDAO empresaDAO = new EmpresaDAO();
-                    empresaDAO.inserir(empresa);
+                    EmpresaDAO empresaDAO = new EmpresaDAO()
+                    empresaDAO.inserir(empresa)
                     break
                 case 6:
                     Candidato candidato = createCandidato()
-                    CandidatoDAO candidatoDAO = new CandidatoDAO();
-                    int new_id = candidatoDAO.inserir(candidato);
+                    CandidatoDAO candidatoDAO = new CandidatoDAO()
+                    int new_id = candidatoDAO.inserir(candidato)
 
                     CandidatosCompetenciasDAO candidatosCompetenciasDAO = new CandidatosCompetenciasDAO()
                     int id = 0
@@ -90,8 +90,8 @@ class App {
                     break
                 case 7:
                     Vaga vaga = createVaga()
-                    VagaDAO vagaDAO = new VagaDAO();
-                    int new_id = vagaDAO.inserir(vaga);
+                    VagaDAO vagaDAO = new VagaDAO()
+                    int new_id = vagaDAO.inserir(vaga)
 
                     VagasCompetenciasDAO vagasCompetenciasDAO = new VagasCompetenciasDAO()
                     int id = 0
@@ -107,8 +107,8 @@ class App {
                     break
                 case 8:
                     Competencia competencia = createCompetencia()
-                    CompetenciaDAO competenciaDAO = new CompetenciaDAO();
-                    List<Competencia> competencias = competenciaDAO.listar();
+                    CompetenciaDAO competenciaDAO = new CompetenciaDAO()
+                    List<Competencia> competencias = competenciaDAO.listar()
 
                     def isCreated = false
                     for (int i = 0; i < competencias.size(); i++) {
@@ -119,67 +119,67 @@ class App {
                         }
                     }
                     if (!isCreated)
-                        competenciaDAO.inserir(competencia);
+                        competenciaDAO.inserir(competencia)
                     break
                 case 9:
                     print "Digite o ID da empresa: "
                     int id = Integer.parseInt(System.in.newReader().readLine())
 
                     Empresa empresa = createEmpresa()
-                    EmpresaDAO empresaDAO = new EmpresaDAO();
-                    empresaDAO.alterar(empresa, id);
+                    EmpresaDAO empresaDAO = new EmpresaDAO()
+                    empresaDAO.alterar(empresa, id)
                     break
                 case 10:
                     print "Digite o ID do candidato: "
                     int id = Integer.parseInt(System.in.newReader().readLine())
 
                     Candidato candidato = createCandidato()
-                    CandidatoDAO candidatoDAO = new CandidatoDAO();
-                    candidatoDAO.alterar(candidato, id);
+                    CandidatoDAO candidatoDAO = new CandidatoDAO()
+                    candidatoDAO.alterar(candidato, id)
                     break
                 case 11:
                     print "Digite o ID da vaga: "
                     int id = Integer.parseInt(System.in.newReader().readLine())
 
                     Vaga vaga = createVaga()
-                    VagaDAO vagaDAO = new VagaDAO();
-                    vagaDAO.alterar(vaga, id);
+                    VagaDAO vagaDAO = new VagaDAO()
+                    vagaDAO.alterar(vaga, id)
                     break
                 case 12:
                     print "Digite o ID da competencia: "
                     int id = Integer.parseInt(System.in.newReader().readLine())
 
                     Competencia competencia = createCompetencia()
-                    CompetenciaDAO competenciaDAO = new CompetenciaDAO();
-                    competenciaDAO.alterar(competencia, id);
+                    CompetenciaDAO competenciaDAO = new CompetenciaDAO()
+                    competenciaDAO.alterar(competencia, id)
                     break
                 case 13:
                     print "Digite o ID da empresa: "
                     int id = Integer.parseInt(System.in.newReader().readLine())
 
-                    EmpresaDAO empresaDAO = new EmpresaDAO();
-                    empresaDAO.remover(id);
+                    EmpresaDAO empresaDAO = new EmpresaDAO()
+                    empresaDAO.remover(id)
                     break
                 case 14:
                     print "Digite o ID do candidato: "
                     int id = Integer.parseInt(System.in.newReader().readLine())
 
-                    CandidatoDAO candidatoDAO = new CandidatoDAO();
-                    candidatoDAO.remover(id);
+                    CandidatoDAO candidatoDAO = new CandidatoDAO()
+                    candidatoDAO.remover(id)
                     break
                 case 15:
                     print "Digite o ID da vaga: "
                     int id = Integer.parseInt(System.in.newReader().readLine())
 
-                    VagaDAO vagaDAO = new VagaDAO();
-                    vagaDAO.remover(id);
+                    VagaDAO vagaDAO = new VagaDAO()
+                    vagaDAO.remover(id)
                     break
                 case 16:
                     print "Digite o ID da competencia: "
                     int id = Integer.parseInt(System.in.newReader().readLine())
 
-                    CompetenciaDAO competenciaDAO = new CompetenciaDAO();
-                    competenciaDAO.remover(id);
+                    CompetenciaDAO competenciaDAO = new CompetenciaDAO()
+                    competenciaDAO.remover(id)
                     break
                 case 0:
                     break
