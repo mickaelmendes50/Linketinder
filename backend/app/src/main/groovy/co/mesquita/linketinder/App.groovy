@@ -1,13 +1,9 @@
 package co.mesquita.linketinder
 
-import co.mesquita.linketinder.dao.CompetenciaDAO
-
-import static co.mesquita.linketinder.view.View.*
 import static co.mesquita.linketinder.controller.CandidatoController.*
+import static co.mesquita.linketinder.controller.CompetenciaController.*
 import static co.mesquita.linketinder.controller.EmpresaController.*
 import static co.mesquita.linketinder.controller.VagaController.*
-
-import co.mesquita.linketinder.entity.*
 
 class App {
 
@@ -50,11 +46,8 @@ class App {
                     listVagas()
                     break
                 case 4:
-                    List<Competencia> competencias = CompetenciaDAO.listar()
-                    for (Competencia competencia : competencias)
-                        System.out.println(competencia)
+                    listCompetencias()
                     break
-
                 case 5:
                     createEmpresa()
                     break
@@ -65,19 +58,7 @@ class App {
                     createVaga()
                     break
                 case 8:
-                    Competencia competencia = viewCompetencia()
-                    List<Competencia> competencias = CompetenciaDAO.listar()
-
-                    def isCreated = false
-                    for (int i = 0; i < competencias.size(); i++) {
-                        if (competencias.get(i).getNome() == competencia.getNome()) {
-                            println "Competencia já cadastrada"
-                            isCreated = true
-                            break
-                        }
-                    }
-                    if (!isCreated)
-                        CompetenciaDAO.inserir(competencia)
+                    createCompetencia()
                     break
                 case 9:
                     updateEmpresa()
@@ -89,11 +70,7 @@ class App {
                     updateVaga()
                     break
                 case 12:
-                    print "Digite o ID da competencia: "
-                    int id = Integer.parseInt(System.in.newReader().readLine())
-
-                    Competencia competencia = viewCompetencia()
-                    CompetenciaDAO.alterar(competencia, id)
+                    updateCompetencia()
                     break
                 case 13:
                     deleteEmpresa()
@@ -105,10 +82,7 @@ class App {
                     deleteVaga()
                     break
                 case 16:
-                    print "Digite o ID da competencia: "
-                    int id = Integer.parseInt(System.in.newReader().readLine())
-
-                    CompetenciaDAO.remover(id)
+                    deleteCompetencia()
                     break
                 case 0:
                     break
