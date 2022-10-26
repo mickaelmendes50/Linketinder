@@ -1,13 +1,13 @@
 package co.mesquita.linketinder
 
-import co.mesquita.linketinder.dao.CandidatoDAO
-import co.mesquita.linketinder.dao.CandidatosCompetenciasDAO
 import co.mesquita.linketinder.dao.CompetenciaDAO
 import co.mesquita.linketinder.dao.EmpresaDAO
 import co.mesquita.linketinder.dao.VagaDAO
 import co.mesquita.linketinder.dao.VagasCompetenciasDAO
 
 import static co.mesquita.linketinder.view.View.*
+import static co.mesquita.linketinder.controller.CandidatoController.*
+
 import co.mesquita.linketinder.entity.*
 
 class App {
@@ -47,9 +47,7 @@ class App {
                         System.out.println(empresa)
                     break
                 case 2:
-                    List<Candidato> candidatos = CandidatoDAO.listar()
-                    for (Candidato candidato : candidatos)
-                        System.out.println(candidato)
+                    listCandidatos()
                     break
                 case 3:
                     List<Vaga> vagas = VagaDAO.listar()
@@ -67,20 +65,7 @@ class App {
                     EmpresaDAO.inserir(empresa)
                     break
                 case 6:
-                    Candidato candidato = viewCandidato()
-                    int new_id = CandidatoDAO.inserir(candidato)
-
-                    int id = 0
-                    while (id != -1) {
-                        println "Digite o ID da Competencia para o Candidato: (Para finalizar digite -1)"
-                        id = Integer.parseInt(System.in.newReader().readLine())
-                        if (id > 0) {
-                            boolean isCreated = CandidatosCompetenciasDAO.inserir(new_id, id)
-                            if (isCreated)
-                                println "Adicionada com sucesso"
-                        }
-                    }
-
+                    createCandidato()
                     break
                 case 7:
                     Vaga vaga = viewVaga()
@@ -121,11 +106,7 @@ class App {
                     EmpresaDAO.alterar(empresa, id)
                     break
                 case 10:
-                    print "Digite o ID do candidato: "
-                    int id = Integer.parseInt(System.in.newReader().readLine())
-
-                    Candidato candidato = viewCandidato()
-                    CandidatoDAO.alterar(candidato, id)
+                    updateCandidato()
                     break
                 case 11:
                     print "Digite o ID da vaga: "
@@ -148,10 +129,7 @@ class App {
                     EmpresaDAO.remover(id)
                     break
                 case 14:
-                    print "Digite o ID do candidato: "
-                    int id = Integer.parseInt(System.in.newReader().readLine())
-
-                    CandidatoDAO.remover(id)
+                    deleteCandidato()
                     break
                 case 15:
                     print "Digite o ID da vaga: "
