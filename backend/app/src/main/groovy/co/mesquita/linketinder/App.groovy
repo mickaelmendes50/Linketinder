@@ -1,12 +1,12 @@
 package co.mesquita.linketinder
 
 import co.mesquita.linketinder.dao.CompetenciaDAO
-import co.mesquita.linketinder.dao.EmpresaDAO
 import co.mesquita.linketinder.dao.VagaDAO
 import co.mesquita.linketinder.dao.VagasCompetenciasDAO
 
 import static co.mesquita.linketinder.view.View.*
 import static co.mesquita.linketinder.controller.CandidatoController.*
+import static co.mesquita.linketinder.controller.EmpresaController.*
 
 import co.mesquita.linketinder.entity.*
 
@@ -42,9 +42,7 @@ class App {
             option = System.in.newReader().readLine() as Integer
             switch(option) {
                 case 1:
-                    List<Empresa> empresas = EmpresaDAO.listar()
-                    for (Empresa empresa : empresas)
-                        System.out.println(empresa)
+                    listEmpresas()
                     break
                 case 2:
                     listCandidatos()
@@ -61,8 +59,7 @@ class App {
                     break
 
                 case 5:
-                    Empresa empresa = viewEmpresa()
-                    EmpresaDAO.inserir(empresa)
+                    createEmpresa()
                     break
                 case 6:
                     createCandidato()
@@ -99,11 +96,7 @@ class App {
                         CompetenciaDAO.inserir(competencia)
                     break
                 case 9:
-                    print "Digite o ID da empresa: "
-                    int id = Integer.parseInt(System.in.newReader().readLine())
-
-                    Empresa empresa = viewEmpresa()
-                    EmpresaDAO.alterar(empresa, id)
+                    updateEmpresa()
                     break
                 case 10:
                     updateCandidato()
@@ -123,10 +116,7 @@ class App {
                     CompetenciaDAO.alterar(competencia, id)
                     break
                 case 13:
-                    print "Digite o ID da empresa: "
-                    int id = Integer.parseInt(System.in.newReader().readLine())
-
-                    EmpresaDAO.remover(id)
+                    deleteEmpresa()
                     break
                 case 14:
                     deleteCandidato()
