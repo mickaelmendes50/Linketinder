@@ -1,12 +1,12 @@
-package co.mesquita.linketinder.crud
+package co.mesquita.linketinder.view
 
 import co.mesquita.linketinder.entity.Candidato
 import co.mesquita.linketinder.entity.Competencia
 import co.mesquita.linketinder.entity.Empresa
 import co.mesquita.linketinder.entity.Vaga
 
-class Create {
-    static Candidato createCandidato() {
+class View {
+    static Candidato viewCandidato() {
         println "Dados do Candidato"
 
         print "Nome: "
@@ -31,7 +31,7 @@ class Create {
         return new Candidato(name, sobrenome, email, senha, documento, nascimento, estate, cep, description)
     }
 
-    static Empresa createEmpresa() {
+    static Empresa viewEmpresa() {
         println "Dados da Empresa"
 
         print "Nome: "
@@ -52,7 +52,7 @@ class Create {
         return new Empresa(name, email, senha, documento, country, cep, description)
     }
 
-    static Vaga createVaga() {
+    static Vaga viewVaga() {
         println "Dados da Vaga"
 
         print "ID da Empresa: "
@@ -67,7 +67,7 @@ class Create {
         return new Vaga(id_empresa, nome, descricao, local)
     }
 
-    static createCompetencia() {
+    static viewCompetencia() {
         println "Dados da Competencia"
 
         print "Nome: "
