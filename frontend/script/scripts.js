@@ -90,10 +90,10 @@ function createAccount(type) {
     }
     let person;
     if (type) {
-        person = new PessoaFisica(name, email, id, age, estate, cep, description);
+        person = new Candidato(name, email, id, age, estate, cep, description);
     }
     else {
-        person = new PessoaJuridica(name, email, id, country, estate, cep, description);
+        person = new Empresa(name, email, id, country, estate, cep, description);
     }
     let arr_skills = skill.split(',');
     for (let i = 0; i < arr_skills.length; i++) {
@@ -116,49 +116,49 @@ function createAccount(type) {
 }
 function initialize() {
     // Instâncias predefindias para testes
-    let worker = new PessoaFisica("João", "joao@worker.com", "123.456.789-01", "23", "Goiás", "74659-156", "Legal e extrovertido");
+    let worker = new Candidato("João", "joao@worker.com", "123.456.789-01", "23", "Goiás", "74659-156", "Legal e extrovertido");
     worker.addSkill("Java");
     worker.addSkill("C++");
     worker.addSkill("Python");
     workers.push(worker);
-    worker = new PessoaFisica("Maria", "maria@worker.com", "456.789.101-11", "32", "São Paulo", "86551-785", "Chata e introvertida");
+    worker = new Candidato("Maria", "maria@worker.com", "456.789.101-11", "32", "São Paulo", "86551-785", "Chata e introvertida");
     worker.addSkill("Java");
     worker.addSkill("C#");
     worker.addSkill("Ruby");
     workers.push(worker);
-    worker = new PessoaFisica("Pedro", "pedro@worker.com", "789.101.112-13", "25", "Pernambuco", "95125-532", "Sábio e inteligente");
+    worker = new Candidato("Pedro", "pedro@worker.com", "789.101.112-13", "25", "Pernambuco", "95125-532", "Sábio e inteligente");
     worker.addSkill("C#");
     worker.addSkill("Ruby");
     worker.addSkill("Python");
     workers.push(worker);
-    worker = new PessoaFisica("Marta", "marta@worker.com", "101.112.131-41", "20", "Ceará", "75369-159", "Educada e amorosa");
+    worker = new Candidato("Marta", "marta@worker.com", "101.112.131-41", "20", "Ceará", "75369-159", "Educada e amorosa");
     worker.addSkill("JavaScript");
     worker.addSkill("TypeScript");
     worker.addSkill("Java");
     workers.push(worker);
-    worker = new PessoaFisica("José", "jose@worker.com", "112.131.415-01", "40", "Bahia", "96325-452", "Triste e dramático");
+    worker = new Candidato("José", "jose@worker.com", "112.131.415-01", "40", "Bahia", "96325-452", "Triste e dramático");
     worker.addSkill("Ruby");
     worker.addSkill("Python");
     worker.addSkill("JavaScript");
     workers.push(worker);
     // Instâncias predefindias para testes
-    let employer = new PessoaJuridica("Hiper Festa", "hiperfesta@employer.com", "12.345.678/0001-10", "Brasil", "São Paulo", "96325-452", "Rede de festa");
+    let employer = new Empresa("Hiper Festa", "hiperfesta@employer.com", "12.345.678/0001-10", "Brasil", "São Paulo", "96325-452", "Rede de festa");
     employer.addSkill("Liderança");
     employer.addSkill("Experiencia");
     employers.push(employer);
-    employer = new PessoaJuridica("Google", "google@employer.com", "12.345.678/0001-10", "Estados Unidos", "Califórnia", "75369-159", "Tecnologia");
+    employer = new Empresa("Google", "google@employer.com", "12.345.678/0001-10", "Estados Unidos", "Califórnia", "75369-159", "Tecnologia");
     employer.addSkill("Formação superior");
     employer.addSkill("Gestão");
     employers.push(employer);
-    employer = new PessoaJuridica("Ford", "ford@employer.com", "12.345.678/0001-10", "Estados Unidos", "Dearborn", "86551-785", "Carros");
+    employer = new Empresa("Ford", "ford@employer.com", "12.345.678/0001-10", "Estados Unidos", "Dearborn", "86551-785", "Carros");
     employer.addSkill("Experiencia");
     employer.addSkill("Vendas");
     employers.push(employer);
-    employer = new PessoaJuridica("Xiaomi", "xiaomi@employer.com", "12.345.678/0001-10", "China", "Haidian", "74659-156", "Celulares");
+    employer = new Empresa("Xiaomi", "xiaomi@employer.com", "12.345.678/0001-10", "China", "Haidian", "74659-156", "Celulares");
     employer.addSkill("Formacao superior");
     employer.addSkill("Vendas");
     employers.push(employer);
-    employer = new PessoaJuridica("Polishop", "polishop@employer.com", "12.345.678/0001-10", "Brasil", "São Paulo", "95125-532", "Eletrodomesticos");
+    employer = new Empresa("Polishop", "polishop@employer.com", "12.345.678/0001-10", "Brasil", "São Paulo", "95125-532", "Eletrodomesticos");
     employer.addSkill("Liderança");
     employer.addSkill("Gestão");
     employers.push(employer);

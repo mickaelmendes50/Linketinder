@@ -1,4 +1,4 @@
-class PessoaFisica extends Pessoa {
+class Candidato extends Pessoa {
     _age: string
     _estate: string
     _cep: string

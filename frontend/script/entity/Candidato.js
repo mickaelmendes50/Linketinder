@@ -1,5 +1,5 @@
 "use strict";
-class PessoaFisica extends Pessoa {
+class Candidato extends Pessoa {
     constructor(name, email, id, age, estate, cep, description) {
         super(name, email, id);
         this._skills = [];

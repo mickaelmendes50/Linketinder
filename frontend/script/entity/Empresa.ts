@@ -1,9 +1,9 @@
-class PessoaJuridica extends Pessoa {
+class Empresa extends Pessoa {
     _country: string
     _estate: string
     _cep: string
     _description: string
-
+ 
     _skills: string[] = []
 
     constructor(name: string, email: string, id: string, country: string, estate: string, cep: string, description: string) {
