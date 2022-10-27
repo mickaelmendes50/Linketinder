@@ -1,3 +1,13 @@
+let nome: string
+let email: string
+let id: string
+let country: string
+let estate: string
+let cep: string
+let description: string
+let skill: string
+let age: string
+
 let workers: Candidato[] = []
 let employers: Empresa[] = []
 
@@ -85,67 +95,5 @@ function restoreContent(type: number) {
         const size = employers.length - 1
         const accName = document.getElementById("acc-name") as HTMLInputElement
         accName.innerHTML = employers[5]._name        
-    }
-}
-
-function showInfo(type: number) {
-    let size
-    let arr = []
-    if (type) {
-        size = workers.length -1;
-        arr = workers
-    } else {
-        size = employers.length - 1;
-        arr = employers
-    }
-    
-    (document.getElementById("show-name") as HTMLInputElement).innerHTML = arr[size]._name;
-    (document.getElementById("show-email") as HTMLInputElement).innerHTML = arr[size]._email;
-    (document.getElementById("show-id") as HTMLInputElement).innerHTML = arr[size]._id;
-    if (type) {
-        (document.getElementById("show-age") as HTMLInputElement).innerHTML = arr[size]._age;
-    } else {
-        (document.getElementById("show-country") as HTMLInputElement).innerHTML = arr[size]._country;
-    }
-    (document.getElementById("show-estate") as HTMLInputElement).innerHTML = arr[size]._estate;
-    (document.getElementById("show-cep") as HTMLInputElement).innerHTML = arr[size]._cep;
-    (document.getElementById("show-description") as HTMLInputElement).innerHTML = arr[size]._description;
-}
-
-function showList(type: number) {
-    let arr = []
-    if (type) {
-        arr = workers
-    } else {
-        arr = employers
-    }
-
-    const element_list = document.getElementById("list-values")
-
-    for (let i = 0; i < arr.length; i++) {
-        const p = document.createElement("p");
-        const x = arr[i]
-        
-        let y
-        if (type) {
-            y = "Idade: " + x._age + " anos. " + "Descrição: " + x._description + ". Local: CEP " + x._cep + ", " + x._estate
-        } else {
-            y = "Descrição: " + x._description + ". Local: CEP " + x._cep + ", " + x._estate + " - " + x._country
-        }
-        
-        let z = "Habilidades: "
-        for (let j = 0; j < (x._skills).length; j++) {
-            z += x._skills[j] + "; "
-        }
-        
-        let text = document.createTextNode(z + y)
-        p.appendChild(text)
-
-        let img = document.createElement("img")
-        img.setAttribute("src", "assets/heart-icon.png")
-        img.setAttribute("class", "heart-icon")
-        
-        element_list?.appendChild(p)
-        element_list?.appendChild(img)
     }
 }

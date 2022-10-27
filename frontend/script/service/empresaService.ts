@@ -1,13 +1,4 @@
-let nome: string
-let email: string
-let id: string
-let country: string
-let estate: string
-let cep: string
-let description: string
-let skill: string
-
-function getData(): void {
+function getDataEmpresa(): void {
     nome = (document.getElementById("name") as HTMLInputElement).value
     email = (document.getElementById("email") as HTMLInputElement).value
     id = (document.getElementById("cnpj") as HTMLInputElement).value
@@ -18,7 +9,7 @@ function getData(): void {
     skill = (document.getElementById("pj_skills") as HTMLInputElement).value
 }
 
-function checkData(): boolean {
+function checkDataEmpresa(): boolean {
     if (nome.match(/[a-zA-Z\u00C0-\u00FF ]+/gi) == null || nome.match(/\d/g) != null  || nome == "" ) {
         (document.getElementById("return-info") as HTMLInputElement).innerHTML = "Nome inválido!";
         (document.getElementById("return-info") as HTMLInputElement).style.color = "red"
@@ -71,9 +62,9 @@ function checkData(): boolean {
 }
 
 function createEmpresa(): void {
-    getData()
+    getDataEmpresa()
 
-    if (!checkData()) {
+    if (!checkDataEmpresa()) {
         return
     }
 
@@ -90,4 +81,44 @@ function createEmpresa(): void {
     sessionStorage.setItem("employersArray", JSON.stringify(employers))
 
     window.location.href = 'business.html'
+}
+
+function showEmpresaInfo() {
+    let size = employers.length - 1;
+    let arr: Empresa[] = employers;
+    
+    (document.getElementById("show-name") as HTMLInputElement).innerHTML = arr[size]._name;
+    (document.getElementById("show-email") as HTMLInputElement).innerHTML = arr[size]._email;
+    (document.getElementById("show-id") as HTMLInputElement).innerHTML = arr[size]._id;
+    (document.getElementById("show-country") as HTMLInputElement).innerHTML = arr[size]._country;
+    (document.getElementById("show-estate") as HTMLInputElement).innerHTML = arr[size]._estate;
+    (document.getElementById("show-cep") as HTMLInputElement).innerHTML = arr[size]._cep;
+    (document.getElementById("show-description") as HTMLInputElement).innerHTML = arr[size]._description;
+}
+
+function showEmpresasList() {
+    let arr: Empresa[] = employers;
+
+    const element_list = document.getElementById("list-values")
+
+    for (let i = 0; i < arr.length; i++) {
+        const p = document.createElement("p");
+        const x = arr[i]
+        
+        let y = "Descrição: " + x._description + ". Local: CEP " + x._cep + ", " + x._estate + " - " + x._country        
+        let z = "Habilidades: "
+        for (let j = 0; j < (x._skills).length; j++) {
+            z += x._skills[j] + "; "
+        }
+        
+        let text = document.createTextNode(z + y)
+        p.appendChild(text)
+
+        let img = document.createElement("img")
+        img.setAttribute("src", "assets/heart-icon.png")
+        img.setAttribute("class", "heart-icon")
+        
+        element_list?.appendChild(p)
+        element_list?.appendChild(img)
+    }
 }

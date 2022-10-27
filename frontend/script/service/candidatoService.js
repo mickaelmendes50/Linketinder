@@ -1,15 +1,15 @@
 "use strict";
-function getDataEmpresa() {
+function getDataCandidato() {
     nome = document.getElementById("name").value;
     email = document.getElementById("email").value;
-    id = document.getElementById("cnpj").value;
-    country = document.getElementById("country").value;
-    estate = document.getElementById("pj_estate").value;
-    cep = document.getElementById("pj_cep").value;
-    description = document.getElementById("pj_description").value;
-    skill = document.getElementById("pj_skills").value;
+    id = document.getElementById("cpf").value;
+    age = document.getElementById("age").value;
+    estate = document.getElementById("pf_estate").value;
+    cep = document.getElementById("pf_cep").value;
+    description = document.getElementById("pf_description").value;
+    skill = document.getElementById("pf_skills").value;
 }
-function checkDataEmpresa() {
+function checkDataCandidato() {
     if (nome.match(/[a-zA-Z\u00C0-\u00FF ]+/gi) == null || nome.match(/\d/g) != null || nome == "") {
         document.getElementById("return-info").innerHTML = "Nome inválido!";
         document.getElementById("return-info").style.color = "red";
@@ -20,13 +20,13 @@ function checkDataEmpresa() {
         document.getElementById("return-info").style.color = "red";
         return false;
     }
-    if ((id.match(/([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})/)) == null) {
-        document.getElementById("return-info").innerHTML = "CNPJ inválido!";
+    if ((id.match(/([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})/)) == null) {
+        document.getElementById("return-info").innerHTML = "CPF inválido!";
         document.getElementById("return-info").style.color = "red";
         return false;
     }
-    if (country.match(/[a-zA-Z\u00C0-\u00FF ]+/gi) == null || country.match(/\d/g) != null || country == "") {
-        document.getElementById("return-info").innerHTML = "País inválido!";
+    if (age == "" || age.match(/\d{1,2}/) == null || age.length > 2) {
+        document.getElementById("return-info").innerHTML = "Idade inválida!";
         document.getElementById("return-info").style.color = "red";
         return false;
     }
@@ -52,39 +52,39 @@ function checkDataEmpresa() {
     }
     return true;
 }
-function createEmpresa() {
-    getDataEmpresa();
-    if (!checkDataEmpresa()) {
+function createCandidato() {
+    getDataCandidato();
+    if (!checkDataCandidato()) {
         return;
     }
-    let empresa = new Empresa(nome, email, id, country, estate, cep, description);
+    let person = new Candidato(nome, email, id, age, estate, cep, description);
     let arr_skills = skill.split(',');
     for (let i = 0; i < arr_skills.length; i++) {
-        empresa.addSkill(arr_skills[i]);
+        person.addSkill(arr_skills[i]);
     }
-    employers.push(empresa);
+    workers.push(person);
     sessionStorage.setItem("workersArray", JSON.stringify(workers));
     sessionStorage.setItem("employersArray", JSON.stringify(employers));
-    window.location.href = 'business.html';
+    window.location.href = 'candidate.html';
 }
-function showEmpresaInfo() {
-    let size = employers.length - 1;
-    let arr = employers;
+function showCandidatoInfo(type) {
+    let size = workers.length - 1;
+    let arr = workers;
     document.getElementById("show-name").innerHTML = arr[size]._name;
     document.getElementById("show-email").innerHTML = arr[size]._email;
     document.getElementById("show-id").innerHTML = arr[size]._id;
-    document.getElementById("show-country").innerHTML = arr[size]._country;
+    document.getElementById("show-age").innerHTML = arr[size]._age;
     document.getElementById("show-estate").innerHTML = arr[size]._estate;
     document.getElementById("show-cep").innerHTML = arr[size]._cep;
     document.getElementById("show-description").innerHTML = arr[size]._description;
 }
-function showEmpresasList() {
-    let arr = employers;
+function showCandidatosList(type) {
+    let arr = workers;
     const element_list = document.getElementById("list-values");
     for (let i = 0; i < arr.length; i++) {
         const p = document.createElement("p");
         const x = arr[i];
-        let y = "Descrição: " + x._description + ". Local: CEP " + x._cep + ", " + x._estate + " - " + x._country;
+        let y = "Idade: " + x._age + " anos. " + "Descrição: " + x._description + ". Local: CEP " + x._cep + ", " + x._estate;
         let z = "Habilidades: ";
         for (let j = 0; j < (x._skills).length; j++) {
             z += x._skills[j] + "; ";

@@ -1,4 +1,13 @@
 "use strict";
+let nome;
+let email;
+let id;
+let country;
+let estate;
+let cep;
+let description;
+let skill;
+let age;
 let workers = [];
 let employers = [];
 function displayEnable(id) {
@@ -80,61 +89,5 @@ function restoreContent(type) {
         const size = employers.length - 1;
         const accName = document.getElementById("acc-name");
         accName.innerHTML = employers[5]._name;
-    }
-}
-function showInfo(type) {
-    let size;
-    let arr = [];
-    if (type) {
-        size = workers.length - 1;
-        arr = workers;
-    }
-    else {
-        size = employers.length - 1;
-        arr = employers;
-    }
-    document.getElementById("show-name").innerHTML = arr[size]._name;
-    document.getElementById("show-email").innerHTML = arr[size]._email;
-    document.getElementById("show-id").innerHTML = arr[size]._id;
-    if (type) {
-        document.getElementById("show-age").innerHTML = arr[size]._age;
-    }
-    else {
-        document.getElementById("show-country").innerHTML = arr[size]._country;
-    }
-    document.getElementById("show-estate").innerHTML = arr[size]._estate;
-    document.getElementById("show-cep").innerHTML = arr[size]._cep;
-    document.getElementById("show-description").innerHTML = arr[size]._description;
-}
-function showList(type) {
-    let arr = [];
-    if (type) {
-        arr = workers;
-    }
-    else {
-        arr = employers;
-    }
-    const element_list = document.getElementById("list-values");
-    for (let i = 0; i < arr.length; i++) {
-        const p = document.createElement("p");
-        const x = arr[i];
-        let y;
-        if (type) {
-            y = "Idade: " + x._age + " anos. " + "Descrição: " + x._description + ". Local: CEP " + x._cep + ", " + x._estate;
-        }
-        else {
-            y = "Descrição: " + x._description + ". Local: CEP " + x._cep + ", " + x._estate + " - " + x._country;
-        }
-        let z = "Habilidades: ";
-        for (let j = 0; j < (x._skills).length; j++) {
-            z += x._skills[j] + "; ";
-        }
-        let text = document.createTextNode(z + y);
-        p.appendChild(text);
-        let img = document.createElement("img");
-        img.setAttribute("src", "assets/heart-icon.png");
-        img.setAttribute("class", "heart-icon");
-        element_list === null || element_list === void 0 ? void 0 : element_list.appendChild(p);
-        element_list === null || element_list === void 0 ? void 0 : element_list.appendChild(img);
     }
 }
