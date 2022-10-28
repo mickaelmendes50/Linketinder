@@ -12,13 +12,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="38469fdb-a368-4cbf-bebd-85bb37008de1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/app/src/main/groovy/co/mesquita/linketinder/App.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/groovy/co/mesquita/linketinder/App.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/groovy/co/mesquita/linketinder/dao/CandidatoDAO.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/groovy/co/mesquita/linketinder/dao/CandidatoDAO.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/groovy/co/mesquita/linketinder/dao/CandidatosCompetenciasDAO.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/groovy/co/mesquita/linketinder/dao/CandidatosCompetenciasDAO.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/groovy/co/mesquita/linketinder/dao/CompetenciaDAO.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/groovy/co/mesquita/linketinder/dao/CompetenciaDAO.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/groovy/co/mesquita/linketinder/dao/EmpresaDAO.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/groovy/co/mesquita/linketinder/dao/EmpresaDAO.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/groovy/co/mesquita/linketinder/dao/VagaDAO.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/groovy/co/mesquita/linketinder/dao/VagaDAO.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/groovy/co/mesquita/linketinder/repository/Repository.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/groovy/co/mesquita/linketinder/repository/Repository.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/groovy/co/mesquita/linketinder/entity/testCandidato.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/groovy/co/mesquita/linketinder/entity/testCandidato.groovy" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +54,13 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -75,35 +78,48 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-18&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/GitHub/Linketinder/backend&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.41149426&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "create.test.in.the.same.root": "true",
+    "jdk.selected.JAVA_MODULE": "openjdk-18",
+    "last_directory_selection": "C:/GitHub/Linketinder/backend/app/src/main/groovy",
+    "last_opened_file_path": "C:/GitHub/Linketinder/backend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.41149426",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
-  <component name="RunManager" selected="Application.App">
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="test.co.mesquita.linketinder.entity" />
+      <recent name="co.mesquita.linketinder.entity" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.test.co.mesquita.linketinder.entity in linketinder.app.main">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="openjdk-18" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -173,6 +189,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="test.co.mesquita.linketinder.entity in linketinder.app.main" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="linketinder.app.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.co.mesquita.linketinder.entity.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test.co.mesquita.linketinder.entity" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="backend" />
       <method v="2">
@@ -192,9 +224,11 @@
       <item itemvalue="Gradle.C:/Users/micka/Desktop/GitHub/Linketinder/backend [run]" />
       <item itemvalue="Groovy.Main (1)" />
       <item itemvalue="Groovy.Main" />
+      <item itemvalue="JUnit.test.co.mesquita.linketinder.entity in linketinder.app.main" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.test.co.mesquita.linketinder.entity in linketinder.app.main" />
         <item itemvalue="Application.App" />
         <item itemvalue="Groovy.Main (1)" />
         <item itemvalue="Groovy.Main" />
