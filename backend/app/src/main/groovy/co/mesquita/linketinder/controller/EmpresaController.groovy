@@ -2,22 +2,23 @@ package co.mesquita.linketinder.controller
 
 import co.mesquita.linketinder.dao.EmpresaDAO
 import co.mesquita.linketinder.entity.Empresa
+import co.mesquita.linketinder.interfaces.IEntityController
 
 import static co.mesquita.linketinder.view.View.*
 
-class EmpresaController {
-    static void createEmpresa() {
+class EmpresaController implements IEntityController {
+    void create() {
         Empresa empresa = viewEmpresa()
         EmpresaDAO.inserir(empresa)
     }
 
-    static void listEmpresas() {
+    void list() {
         List<Empresa> empresas = EmpresaDAO.listar()
         for (Empresa empresa : empresas)
             System.out.println(empresa)
     }
 
-    static void updateEmpresa() {
+    void update() {
         print "Digite o ID da empresa: "
         int id = Integer.parseInt(System.in.newReader().readLine())
 
@@ -25,7 +26,7 @@ class EmpresaController {
         EmpresaDAO.alterar(empresa, id)
     }
 
-    static void deleteEmpresa() {
+    void delete() {
         print "Digite o ID da empresa: "
         int id = Integer.parseInt(System.in.newReader().readLine())
 

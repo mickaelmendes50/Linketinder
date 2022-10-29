@@ -3,11 +3,12 @@ package co.mesquita.linketinder.controller
 import co.mesquita.linketinder.dao.CandidatoDAO
 import co.mesquita.linketinder.dao.CandidatosCompetenciasDAO
 import co.mesquita.linketinder.entity.Candidato
+import co.mesquita.linketinder.interfaces.IEntityController
 
 import static co.mesquita.linketinder.view.View.*
 
-class CandidatoController {
-    static void createCandidato() {
+class CandidatoController implements IEntityController {
+    void create() {
         Candidato candidato = viewCandidato()
         int new_id = CandidatoDAO.inserir(candidato)
 
@@ -23,13 +24,13 @@ class CandidatoController {
         }
     }
 
-    static void listCandidatos() {
+    void list() {
         List<Candidato> candidatos = CandidatoDAO.listar()
         for (Candidato candidato : candidatos)
             System.out.println(candidato)
     }
 
-    static void updateCandidato() {
+    void update() {
         print "Digite o ID do candidato: "
         int id = Integer.parseInt(System.in.newReader().readLine())
 
@@ -37,7 +38,7 @@ class CandidatoController {
         CandidatoDAO.alterar(candidato, id)
     }
 
-    static void deleteCandidato() {
+    void delete() {
         print "Digite o ID do candidato: "
         int id = Integer.parseInt(System.in.newReader().readLine())
 

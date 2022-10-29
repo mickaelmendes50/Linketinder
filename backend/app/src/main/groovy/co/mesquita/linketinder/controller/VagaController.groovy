@@ -3,11 +3,12 @@ package co.mesquita.linketinder.controller
 import co.mesquita.linketinder.dao.VagaDAO
 import co.mesquita.linketinder.dao.VagasCompetenciasDAO
 import co.mesquita.linketinder.entity.Vaga
+import co.mesquita.linketinder.interfaces.IEntityController
 
 import static co.mesquita.linketinder.view.View.viewVaga
 
-class VagaController {
-    static void createVaga() {
+class VagaController implements IEntityController {
+    void create() {
         Vaga vaga = viewVaga()
         int new_id = VagaDAO.inserir(vaga)
 
@@ -23,13 +24,13 @@ class VagaController {
         }
     }
 
-    static void listVagas() {
+    void list() {
         List<Vaga> vagas = VagaDAO.listar()
         for (Vaga vaga : vagas)
             System.out.println(vaga)
     }
 
-    static void updateVaga() {
+    void update() {
         print "Digite o ID da vaga: "
         int id = Integer.parseInt(System.in.newReader().readLine())
 
@@ -37,7 +38,7 @@ class VagaController {
         VagaDAO.alterar(vaga, id)
     }
 
-    static void deleteVaga() {
+    void delete() {
         print "Digite o ID da vaga: "
         int id = Integer.parseInt(System.in.newReader().readLine())
 

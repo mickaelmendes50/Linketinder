@@ -2,11 +2,12 @@ package co.mesquita.linketinder.controller
 
 import co.mesquita.linketinder.dao.CompetenciaDAO
 import co.mesquita.linketinder.entity.Competencia
+import co.mesquita.linketinder.interfaces.IEntityController
 
 import static co.mesquita.linketinder.view.View.viewCompetencia
 
-class CompetenciaController {
-    static void createCompetencia() {
+class CompetenciaController implements IEntityController {
+    void create() {
         Competencia competencia = viewCompetencia()
         List<Competencia> competencias = CompetenciaDAO.listar()
 
@@ -22,13 +23,13 @@ class CompetenciaController {
             CompetenciaDAO.inserir(competencia)
     }
 
-    static void listCompetencias() {
+    void list() {
         List<Competencia> competencias = CompetenciaDAO.listar()
         for (Competencia competencia : competencias)
             System.out.println(competencia)
     }
 
-    static void updateCompetencia() {
+    void update() {
         print "Digite o ID da competencia: "
         int id = Integer.parseInt(System.in.newReader().readLine())
 
@@ -36,7 +37,7 @@ class CompetenciaController {
         CompetenciaDAO.alterar(competencia, id)
     }
 
-    static void deleteCompetencia() {
+    void delete() {
         print "Digite o ID da competencia: "
         int id = Integer.parseInt(System.in.newReader().readLine())
 

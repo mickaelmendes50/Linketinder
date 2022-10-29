@@ -1,9 +1,9 @@
 package co.mesquita.linketinder
 
-import static co.mesquita.linketinder.controller.CandidatoController.*
-import static co.mesquita.linketinder.controller.CompetenciaController.*
-import static co.mesquita.linketinder.controller.EmpresaController.*
-import static co.mesquita.linketinder.controller.VagaController.*
+import co.mesquita.linketinder.controller.CandidatoController
+import co.mesquita.linketinder.controller.CompetenciaController
+import co.mesquita.linketinder.controller.EmpresaController
+import co.mesquita.linketinder.controller.VagaController
 
 class App {
 
@@ -37,52 +37,68 @@ class App {
             option = System.in.newReader().readLine() as Integer
             switch(option) {
                 case 1:
-                    listEmpresas()
+                    EmpresaController emprCtrl = new EmpresaController()
+                    emprCtrl.list()
                     break
                 case 2:
-                    listCandidatos()
+                    CandidatoController candCtrl = new CandidatoController()
+                    candCtrl.list()
                     break
                 case 3:
-                    listVagas()
+                    VagaController vagaCtrl = new VagaController()
+                    vagaCtrl.list()
                     break
                 case 4:
-                    listCompetencias()
+                    CompetenciaController compCtrl = new CompetenciaController()
+                    compCtrl.list()
                     break
                 case 5:
-                    createEmpresa()
+                    EmpresaController emprCtrl = new EmpresaController()
+                    emprCtrl.create()
                     break
                 case 6:
-                    createCandidato()
+                    CandidatoController candCtrl = new CandidatoController()
+                    candCtrl.create()
                     break
                 case 7:
-                    createVaga()
+                    VagaController vagaCtrl = new VagaController()
+                    vagaCtrl.create()
                     break
                 case 8:
-                    createCompetencia()
+                    CompetenciaController compCtrl = new CompetenciaController()
+                    compCtrl.create()
                     break
                 case 9:
-                    updateEmpresa()
+                    EmpresaController emprCtrl = new EmpresaController()
+                    emprCtrl.update()
                     break
                 case 10:
-                    updateCandidato()
+                    CandidatoController candCtrl = new CandidatoController()
+                    candCtrl.update()
                     break
                 case 11:
-                    updateVaga()
+                    VagaController vagaCtrl = new VagaController()
+                    vagaCtrl.update()
                     break
                 case 12:
-                    updateCompetencia()
+                    CompetenciaController compCtrl = new CompetenciaController()
+                    compCtrl.update()
                     break
                 case 13:
-                    deleteEmpresa()
+                    EmpresaController emprCtrl = new EmpresaController()
+                    emprCtrl.delete()
                     break
                 case 14:
-                    deleteCandidato()
+                    CandidatoController candCtrl = new CandidatoController()
+                    candCtrl.delete()
                     break
                 case 15:
-                    deleteVaga()
+                    VagaController vagaCtrl = new VagaController()
+                    vagaCtrl.delete()
                     break
                 case 16:
-                    deleteCompetencia()
+                    CompetenciaController compCtrl = new CompetenciaController()
+                    compCtrl.delete()
                     break
                 case 0:
                     break
