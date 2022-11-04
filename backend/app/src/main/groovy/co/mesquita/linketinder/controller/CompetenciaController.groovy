@@ -4,6 +4,7 @@ import co.mesquita.linketinder.dao.CompetenciaDAO
 import co.mesquita.linketinder.entity.Competencia
 import co.mesquita.linketinder.interfaces.IEntityController
 
+import static co.mesquita.linketinder.view.View.askId
 import static co.mesquita.linketinder.view.View.viewCompetencia
 
 class CompetenciaController implements IEntityController {
@@ -30,17 +31,13 @@ class CompetenciaController implements IEntityController {
     }
 
     void update() {
-        print "Digite o ID da competencia: "
-        int id = Integer.parseInt(System.in.newReader().readLine())
-
+        int id = askId()
         Competencia competencia = viewCompetencia()
         CompetenciaDAO.alterar(competencia, id)
     }
 
     void delete() {
-        print "Digite o ID da competencia: "
-        int id = Integer.parseInt(System.in.newReader().readLine())
-
+        int id = askId()
         CompetenciaDAO.remover(id)
     }
 }

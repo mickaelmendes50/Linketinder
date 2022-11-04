@@ -75,4 +75,10 @@ class View {
 
         return new Competencia(nome)
     }
+
+    static int askId() {
+        print "Digite o ID: "
+        int id = Integer.parseInt(System.in.newReader().readLine())
+        return id
+    }
 }

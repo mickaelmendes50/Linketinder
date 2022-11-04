@@ -19,17 +19,13 @@ class EmpresaController implements IEntityController {
     }
 
     void update() {
-        print "Digite o ID da empresa: "
-        int id = Integer.parseInt(System.in.newReader().readLine())
-
+        int id = askId()
         Empresa empresa = viewEmpresa()
         EmpresaDAO.alterar(empresa, id)
     }
 
     void delete() {
-        print "Digite o ID da empresa: "
-        int id = Integer.parseInt(System.in.newReader().readLine())
-
+        int id = askId()
         EmpresaDAO.remover(id)
     }
 }

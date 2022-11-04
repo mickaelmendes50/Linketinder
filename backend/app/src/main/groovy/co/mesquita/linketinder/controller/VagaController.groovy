@@ -5,6 +5,7 @@ import co.mesquita.linketinder.dao.VagasCompetenciasDAO
 import co.mesquita.linketinder.entity.Vaga
 import co.mesquita.linketinder.interfaces.IEntityController
 
+import static co.mesquita.linketinder.view.View.askId
 import static co.mesquita.linketinder.view.View.viewVaga
 
 class VagaController implements IEntityController {
@@ -31,17 +32,13 @@ class VagaController implements IEntityController {
     }
 
     void update() {
-        print "Digite o ID da vaga: "
-        int id = Integer.parseInt(System.in.newReader().readLine())
-
+        int id = askId()
         Vaga vaga = viewVaga()
         VagaDAO.alterar(vaga, id)
     }
 
     void delete() {
-        print "Digite o ID da vaga: "
-        int id = Integer.parseInt(System.in.newReader().readLine())
-
+        int id = askId()
         VagaDAO.remover(id)
     }
 }

@@ -31,17 +31,13 @@ class CandidatoController implements IEntityController {
     }
 
     void update() {
-        print "Digite o ID do candidato: "
-        int id = Integer.parseInt(System.in.newReader().readLine())
-
+        int id = askId()
         Candidato candidato = viewCandidato()
         CandidatoDAO.alterar(candidato, id)
     }
 
     void delete() {
-        print "Digite o ID do candidato: "
-        int id = Integer.parseInt(System.in.newReader().readLine())
-
+        int id = askId()
         CandidatoDAO.remover(id)
     }
 }
