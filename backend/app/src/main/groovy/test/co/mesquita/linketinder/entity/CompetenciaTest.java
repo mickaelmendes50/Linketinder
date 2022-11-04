@@ -1,6 +1,6 @@
 package test.co.mesquita.linketinder.entity;
 
-import co.mesquita.linketinder.entity.Competencia;
+import co.mesquita.linketinder.model.entity.Competencia;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

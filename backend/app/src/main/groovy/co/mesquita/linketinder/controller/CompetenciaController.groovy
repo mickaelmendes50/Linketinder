@@ -1,7 +1,7 @@
 package co.mesquita.linketinder.controller
 
-import co.mesquita.linketinder.dao.CompetenciaDAO
-import co.mesquita.linketinder.entity.Competencia
+import co.mesquita.linketinder.model.dao.CompetenciaDAO
+import co.mesquita.linketinder.model.entity.Competencia
 import co.mesquita.linketinder.interfaces.IEntityController
 
 import static co.mesquita.linketinder.view.View.askId

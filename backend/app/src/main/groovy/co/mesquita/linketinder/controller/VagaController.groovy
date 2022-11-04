@@ -1,8 +1,8 @@
 package co.mesquita.linketinder.controller
 
-import co.mesquita.linketinder.dao.VagaDAO
-import co.mesquita.linketinder.dao.VagasCompetenciasDAO
-import co.mesquita.linketinder.entity.Vaga
+import co.mesquita.linketinder.model.dao.VagaDAO
+import co.mesquita.linketinder.model.dao.VagasCompetenciasDAO
+import co.mesquita.linketinder.model.entity.Vaga
 import co.mesquita.linketinder.interfaces.IEntityController
 
 import static co.mesquita.linketinder.view.View.askId

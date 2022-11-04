@@ -1,6 +1,6 @@
-package co.mesquita.linketinder.repository
+package co.mesquita.linketinder.model.repository
 
-import co.mesquita.linketinder.dao.VagasCompetenciasDAO
+import co.mesquita.linketinder.model.dao.VagasCompetenciasDAO
 
 import java.sql.Connection
 import java.sql.DriverManager

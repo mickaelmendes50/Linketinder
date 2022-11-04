@@ -1,6 +1,6 @@
-package co.mesquita.linketinder.dao
+package co.mesquita.linketinder.model.dao
 
-import co.mesquita.linketinder.entity.Candidato
+import co.mesquita.linketinder.model.entity.Candidato
 
 import java.sql.Connection
 import java.sql.PreparedStatement
@@ -10,7 +10,7 @@ import java.sql.Statement
 import java.util.logging.Level
 import java.util.logging.Logger
 
-import static co.mesquita.linketinder.repository.Repository.connectRepository
+import static co.mesquita.linketinder.model.repository.Repository.connectRepository
 
 class CandidatoDAO {
     private static Connection connection = connectRepository()

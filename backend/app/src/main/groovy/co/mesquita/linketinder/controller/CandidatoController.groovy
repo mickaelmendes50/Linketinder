@@ -1,8 +1,8 @@
 package co.mesquita.linketinder.controller
 
-import co.mesquita.linketinder.dao.CandidatoDAO
-import co.mesquita.linketinder.dao.CandidatosCompetenciasDAO
-import co.mesquita.linketinder.entity.Candidato
+import co.mesquita.linketinder.model.dao.CandidatoDAO
+import co.mesquita.linketinder.model.dao.CandidatosCompetenciasDAO
+import co.mesquita.linketinder.model.entity.Candidato
 import co.mesquita.linketinder.interfaces.IEntityController
 
 import static co.mesquita.linketinder.view.View.*

@@ -1,7 +1,7 @@
 package co.mesquita.linketinder.controller
 
-import co.mesquita.linketinder.dao.EmpresaDAO
-import co.mesquita.linketinder.entity.Empresa
+import co.mesquita.linketinder.model.dao.EmpresaDAO
+import co.mesquita.linketinder.model.entity.Empresa
 import co.mesquita.linketinder.interfaces.IEntityController
 
 import static co.mesquita.linketinder.view.View.*

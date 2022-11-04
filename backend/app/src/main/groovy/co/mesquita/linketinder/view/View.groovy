@@ -1,9 +1,9 @@
 package co.mesquita.linketinder.view
 
-import co.mesquita.linketinder.entity.Candidato
-import co.mesquita.linketinder.entity.Competencia
-import co.mesquita.linketinder.entity.Empresa
-import co.mesquita.linketinder.entity.Vaga
+import co.mesquita.linketinder.model.entity.Candidato
+import co.mesquita.linketinder.model.entity.Competencia
+import co.mesquita.linketinder.model.entity.Empresa
+import co.mesquita.linketinder.model.entity.Vaga
 
 class View {
     static Candidato viewCandidato() {

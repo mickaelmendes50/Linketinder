@@ -1,4 +1,4 @@
-package co.mesquita.linketinder.entity
+package co.mesquita.linketinder.model.entity
 
 class Candidato extends Pessoa {
     private sobrenome
