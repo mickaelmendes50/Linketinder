@@ -1,9 +1,8 @@
 package co.mesquita.linketinder
 
-import co.mesquita.linketinder.controller.CandidatoController
-import co.mesquita.linketinder.controller.CompetenciaController
-import co.mesquita.linketinder.controller.EmpresaController
-import co.mesquita.linketinder.controller.VagaController
+import co.mesquita.linketinder.controller.ControllerFactory
+
+import static co.mesquita.linketinder.utils.Constants.*
 
 class App {
 
@@ -37,68 +36,68 @@ class App {
             option = System.in.newReader().readLine() as Integer
             switch(option) {
                 case 1:
-                    EmpresaController emprCtrl = new EmpresaController()
-                    emprCtrl.list()
+                    def controller = ControllerFactory.getController(EMPRESA)
+                    controller.list()
                     break
                 case 2:
-                    CandidatoController candCtrl = new CandidatoController()
-                    candCtrl.list()
+                    def controller = ControllerFactory.getController(CANDIDATO)
+                    controller.list()
                     break
                 case 3:
-                    VagaController vagaCtrl = new VagaController()
-                    vagaCtrl.list()
+                    def controller = ControllerFactory.getController(VAGA)
+                    controller.list()
                     break
                 case 4:
-                    CompetenciaController compCtrl = new CompetenciaController()
-                    compCtrl.list()
+                    def controller = ControllerFactory.getController(COMPETENCIA)
+                    controller.list()
                     break
                 case 5:
-                    EmpresaController emprCtrl = new EmpresaController()
-                    emprCtrl.create()
+                    def controller = ControllerFactory.getController(EMPRESA)
+                    controller.create()
                     break
                 case 6:
-                    CandidatoController candCtrl = new CandidatoController()
-                    candCtrl.create()
+                    def controller = ControllerFactory.getController(CANDIDATO)
+                    controller.create()
                     break
                 case 7:
-                    VagaController vagaCtrl = new VagaController()
-                    vagaCtrl.create()
+                    def controller = ControllerFactory.getController(VAGA)
+                    controller.create()
                     break
                 case 8:
-                    CompetenciaController compCtrl = new CompetenciaController()
-                    compCtrl.create()
+                    def controller = ControllerFactory.getController(COMPETENCIA)
+                    controller.create()
                     break
                 case 9:
-                    EmpresaController emprCtrl = new EmpresaController()
-                    emprCtrl.update()
+                    def controller = ControllerFactory.getController(EMPRESA)
+                    controller.update()
                     break
                 case 10:
-                    CandidatoController candCtrl = new CandidatoController()
-                    candCtrl.update()
+                    def controller = ControllerFactory.getController(CANDIDATO)
+                    controller.update()
                     break
                 case 11:
-                    VagaController vagaCtrl = new VagaController()
-                    vagaCtrl.update()
+                    def controller = ControllerFactory.getController(VAGA)
+                    controller.update()
                     break
                 case 12:
-                    CompetenciaController compCtrl = new CompetenciaController()
-                    compCtrl.update()
+                    def controller = ControllerFactory.getController(COMPETENCIA)
+                    controller.update()
                     break
                 case 13:
-                    EmpresaController emprCtrl = new EmpresaController()
-                    emprCtrl.delete()
+                    def controller = ControllerFactory.getController(EMPRESA)
+                    controller.delete()
                     break
                 case 14:
-                    CandidatoController candCtrl = new CandidatoController()
-                    candCtrl.delete()
+                    def controller = ControllerFactory.getController(CANDIDATO)
+                    controller.delete()
                     break
                 case 15:
-                    VagaController vagaCtrl = new VagaController()
-                    vagaCtrl.delete()
+                    def controller = ControllerFactory.getController(VAGA)
+                    controller.delete()
                     break
                 case 16:
-                    CompetenciaController compCtrl = new CompetenciaController()
-                    compCtrl.delete()
+                    def controller = ControllerFactory.getController(COMPETENCIA)
+                    controller.delete()
                     break
                 case 0:
                     break
