@@ -18,6 +18,7 @@ class Repository {
 
     static Connection connectRepository() {
         try {
+            Class.forName("org.postgresql.Driver");
             connection = DriverManager.getConnection(DATABASE_URL, USER, PASSWORD)
             return connection
         } catch (ClassNotFoundException | SQLException ex) {
