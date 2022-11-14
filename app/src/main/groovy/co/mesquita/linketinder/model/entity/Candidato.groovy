@@ -68,6 +68,30 @@ class Candidato extends Pessoa {
         return this.documento
     }
 
+    void setSobrenome(sobrenome) {
+        this.sobrenome = sobrenome
+    }
+
+    void setNascimento(nascimento) {
+        this.nascimento = nascimento
+    }
+
+    void setEstate(estate) {
+        this.estate = estate
+    }
+
+    void setCep(cep) {
+        this.cep = cep
+    }
+
+    void setDescription(description) {
+        this.description = description
+    }
+
+    void setDocumento(documento) {
+        this.documento = documento
+    }
+
     String toString() {
         return "-----------------------------------------------------\n" +
                super.toString() +

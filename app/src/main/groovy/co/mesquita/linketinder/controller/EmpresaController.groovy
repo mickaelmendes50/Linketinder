@@ -36,6 +36,7 @@ class EmpresaController extends HttpServlet {
         List<Empresa> empresas = EmpresaDAO.listar()
         if (empresas) {
             for (empresa in empresas) {
+                out.println(empresa.getId())
                 out.println(empresa.getName())
             }
         }

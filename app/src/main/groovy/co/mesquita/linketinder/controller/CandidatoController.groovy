@@ -4,6 +4,7 @@ import co.mesquita.linketinder.model.dao.CandidatoDAO
 import co.mesquita.linketinder.model.dao.CandidatosCompetenciasDAO
 import co.mesquita.linketinder.model.entity.Candidato
 
+import javax.servlet.ServletException
 import javax.servlet.annotation.WebServlet
 import javax.servlet.http.HttpServlet
 import javax.servlet.http.HttpServletRequest
@@ -14,19 +15,22 @@ import static co.mesquita.linketinder.view.View.*
 @WebServlet(urlPatterns = "/candidatos")
 class CandidatoController extends HttpServlet {
 
-    void create() {
-        Candidato candidato = viewCandidato()
-        int new_id = CandidatoDAO.inserir(candidato)
+    @Override
+    void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Candidato candidato = new Candidato()
+        candidato.setName(request.getParameter("nome"))
+        candidato.setSobrenome(request.getParameter("sobrenome"))
+        candidato.setDocumento(request.getParameter("cpf"))
+        candidato.setNascimento(request.getParameter("nascimento"))
+        candidato.setEmail(request.getParameter("email"))
+        candidato.setSenha(request.getParameter("senha"))
+        candidato.setEstate(request.getParameter("estado"))
+        candidato.setCep(request.getParameter("cep"))
+        candidato.setDescription(request.getParameter("descricao"))
 
-        int id = 0
-        while (id != -1) {
-            println "Digite o ID da Competencia para o Candidato: (Para finalizar digite -1)"
-            id = Integer.parseInt(System.in.newReader().readLine())
-            if (id > 0) {
-                boolean isCreated = CandidatosCompetenciasDAO.inserir(new_id, id)
-                if (isCreated)
-                    println "Adicionada com sucesso"
-            }
+        if (CandidatoDAO.inserir(candidato) != -1){
+            PrintWriter out = response.getWriter();
+            out.println(candidato + "\nInserido com sucesso!")
         }
     }
 
@@ -36,6 +40,7 @@ class CandidatoController extends HttpServlet {
         List<Candidato> candidatos = CandidatoDAO.listar()
         if (candidatos) {
             for (candidato in candidatos) {
+                out.println(candidato.getId())
                 out.println(candidato.getName())
             }
         }
