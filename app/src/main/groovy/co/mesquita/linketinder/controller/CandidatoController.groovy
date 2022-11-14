@@ -1,7 +1,6 @@
 package co.mesquita.linketinder.controller
 
 import co.mesquita.linketinder.model.dao.CandidatoDAO
-import co.mesquita.linketinder.model.dao.CandidatosCompetenciasDAO
 import co.mesquita.linketinder.model.entity.Candidato
 
 import javax.servlet.ServletException
@@ -30,7 +29,7 @@ class CandidatoController extends HttpServlet {
 
         if (CandidatoDAO.inserir(candidato) != -1){
             PrintWriter out = response.getWriter();
-            out.println(candidato + "\nInserido com sucesso!")
+            out.println("Inserido com sucesso!")
         }
     }
 
@@ -40,8 +39,7 @@ class CandidatoController extends HttpServlet {
         List<Candidato> candidatos = CandidatoDAO.listar()
         if (candidatos) {
             for (candidato in candidatos) {
-                out.println(candidato.getId())
-                out.println(candidato.getName())
+                out.println(candidato.getId() + ". " + candidato.getName())
             }
         }
     }

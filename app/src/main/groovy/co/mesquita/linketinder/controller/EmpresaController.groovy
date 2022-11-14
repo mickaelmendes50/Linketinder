@@ -26,7 +26,7 @@ class EmpresaController extends HttpServlet {
 
         if (EmpresaDAO.inserir(empresa)) {
             PrintWriter out = response.getWriter();
-            out.println(empresa + "\nInserida com sucesso!")
+            out.println("Inserida com sucesso!")
         }
     }
 
