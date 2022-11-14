@@ -22,6 +22,10 @@ class Empresa extends Pessoa {
         this.documento = documento
     }
 
+    Empresa() {
+        super()
+    }
+
     String getDocumento() {
         return this.documento
     }
@@ -48,6 +52,22 @@ class Empresa extends Pessoa {
 
     String getDescription() {
         return this.description
+    }
+
+    void setCountry(country) {
+        this.country = country
+    }
+
+    void setCep(cep) {
+        this.cep = cep
+    }
+
+    void setDescription(description) {
+        this.description = description
+    }
+
+    void setDocumento(documento) {
+        this.documento = documento
     }
 
     String toString() {

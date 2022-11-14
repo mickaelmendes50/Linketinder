@@ -20,6 +20,8 @@ abstract class Pessoa {
         this.documento = documento
     }
 
+    Pessoa() {}
+
     String getSenha() {
         return senha
     }

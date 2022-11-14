@@ -17,22 +17,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="38469fdb-a368-4cbf-bebd-85bb37008de1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/e16257ac-f610-4be0-95c6-0df9135ba2e7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/e16257ac-f610-4be0-95c6-0df9135ba2e7/storage_v2/_src_/database/postgres.edMnLQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/e16257ac-f610-4be0-95c6-0df9135ba2e7/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/e16257ac-f610-4be0-95c6-0df9135ba2e7/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2022-11-12T170651.404.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2022-11-12T170821.404.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/http-client.cookies" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/app/linketinder.app.main.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/groovy/co/mesquita/linketinder/HelloResources.groovy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/groovy/co/mesquita/linketinder/controller/CandidatoController.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/groovy/co/mesquita/linketinder/controller/CandidatoController.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/groovy/co/mesquita/linketinder/model/repository/Repository.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/groovy/co/mesquita/linketinder/model/repository/Repository.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/groovy/co/mesquita/linketinder/controller/EmpresaController.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/groovy/co/mesquita/linketinder/controller/EmpresaController.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/groovy/co/mesquita/linketinder/model/entity/Empresa.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/groovy/co/mesquita/linketinder/model/entity/Empresa.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/groovy/co/mesquita/linketinder/model/entity/Pessoa.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/groovy/co/mesquita/linketinder/model/entity/Pessoa.groovy" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -348,7 +336,8 @@
       <workItem from="1668276862955" duration="35000" />
       <workItem from="1668373492779" duration="1434000" />
       <workItem from="1668376327511" duration="422000" />
-      <workItem from="1668376838695" duration="2824000" />
+      <workItem from="1668376838695" duration="3314000" />
+      <workItem from="1668401743799" duration="2336000" />
     </task>
     <servers />
   </component>
