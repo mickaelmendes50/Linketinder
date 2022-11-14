@@ -22,6 +22,8 @@ class Vaga {
         this.local = local
     }
 
+    Vaga() {}
+
     int getId() {
         return id
     }
@@ -42,9 +44,28 @@ class Vaga {
         return local
     }
 
+    void setId(id) {
+        this.id = id
+    }
+
+    void setIdEmpresa(id_empresa) {
+        this.id_empresa = id_empresa
+    }
+
+    void setNome(nome) {
+        this.nome = nome
+    }
+
+    void setDescricao(descricao) {
+        this.descricao = descricao
+    }
+
+    void setLocal(local) {
+        this.local = local
+    }
+
     String toString() {
         return "------------------------------------------" +
-               "\nID: " + getId() +
                "\nEmpresa (ID): " + getIdEmpresa() +
                "\nNome: " + getNome() +
                "\nDescricao: " + getDescricao() +

@@ -1,34 +1,39 @@
 package co.mesquita.linketinder.controller
 
 import co.mesquita.linketinder.model.dao.VagaDAO
-import co.mesquita.linketinder.model.dao.VagasCompetenciasDAO
 import co.mesquita.linketinder.model.entity.Vaga
-import co.mesquita.linketinder.interfaces.IEntityController
+
+import javax.servlet.ServletException
+import javax.servlet.annotation.WebServlet
+import javax.servlet.http.HttpServlet
+import javax.servlet.http.HttpServletRequest
+import javax.servlet.http.HttpServletResponse
 
 import static co.mesquita.linketinder.view.View.askId
 import static co.mesquita.linketinder.view.View.viewVaga
 
-class VagaController implements IEntityController {
-    void create() {
-        Vaga vaga = viewVaga()
-        int new_id = VagaDAO.inserir(vaga)
+@WebServlet(urlPatterns = "/vagas")
+class VagaController extends HttpServlet {
+    @Override
+    void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int idempresa = Integer.parseInt(request.getParameter("idempresa"))
+        Vaga vaga = new Vaga(idempresa, request.getParameter("nome"), request.getParameter("descricao"), request.getParameter("local"))
 
-        int id = 0
-        while (id != -1) {
-            println "Digite o ID da Competencia para a vaga: (Para finalizar digite -1)"
-            id = Integer.parseInt(System.in.newReader().readLine())
-            if (id > 0) {
-                boolean isCreated = VagasCompetenciasDAO.inserir(new_id, id)
-                if (isCreated)
-                    println "Adicionada com sucesso"
-            }
+        if (VagaDAO.inserir(vaga) != -1){
+            PrintWriter out = response.getWriter();
+            out.println("\nInserida com sucesso!")
         }
     }
 
-    void list() {
+    @Override
+    void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        PrintWriter out = response.getWriter();
         List<Vaga> vagas = VagaDAO.listar()
-        for (Vaga vaga : vagas)
-            System.out.println(vaga)
+        if (vagas) {
+            for (vaga in vagas) {
+                out.println(vaga.getId() + ". " + vaga.getNome())
+            }
+        }
     }
 
     void update() {
