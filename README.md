@@ -8,7 +8,23 @@ git clone https://github.com/mickaelmendes50/Linketinder.git
 ```
 Importe a pasta /Linketinder como um projeto da IntelliJ e então execute com Tomcat
 
-### Linguagens
-<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/> </a>
+### Banco de Dados
+A aplicação foi desenvolvida utilizando o Banco de Dados PostgreSQL. Para criar um modelo de banco de dados compatível com a aplicação utilize essa [Query](https://raw.githubusercontent.com/mickaelmendes50/Linketinder/master/database/postgres.sql).
+
+### APIs
+A aplicação utiliza Java Servlets e Tomcat para a implementação de APIs. Foram criados métodos GET e POST, com persistência de dados para as seguintes entidades:
+- Candidato
+- Empresa
+- Vaga
+
+Siga o modelo `http://localhost:8080/linketinder/{entidade}s`
+
+### Linguagens e Tecnologias
+
+- JavaScript
+- TypeScript
+- Groovy
+- Gradle
+- Tomcat
 
 ##### Desenvolvido por [Mickael Mesquita](https://github.com/mickaelmendes50).
